@@ -1,0 +1,24 @@
+/*
+ * home-page.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.home_hero_section {
+  padding-block: var(--spacing-xx-large);
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero_title {
+  margin-bottom: var(--spacing-large);
+}
+
+.hero_description {
+  max-width: 600px;
+  margin-inline: auto;
+}

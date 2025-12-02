@@ -1,0 +1,21 @@
+/*
+ * base-image.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 skytechSolutions
+ * All rights reserved
+ */
+
+.placeholder_image {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  padding: 0.5rem;
+  filter: grayscale(0.7);
+  border: 1px solid var(--color-black);
+}
+
+.image_wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

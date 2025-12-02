@@ -1,0 +1,15 @@
+/*
+ * router-indicator.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.router_indicator {
+  width: fit-content;
+  background: rgba(178, 197, 250, 0.19);
+}
+
+.route_path {
+  width: fit-content !important;
+}

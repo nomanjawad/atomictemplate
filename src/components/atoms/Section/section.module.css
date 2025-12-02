@@ -1,0 +1,72 @@
+/*
+ * section.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.section {
+  width: 100%;
+  position: relative;
+}
+
+.space-small {
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+
+.space-medium {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.space-large {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+.space-x-large {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+.space-xx-large {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-xl);
+}
+
+.space-none {
+  padding-top: none;
+  padding-bottom: none;
+}
+
+/* control radius class*/
+.r-large {
+  border-radius: var(--radius-lg);
+}
+
+.r-medium {
+  border-radius: var(--radius-md);
+}
+
+.r-small {
+  border-radius: var(--radius-sm);
+}
+.r-none {
+  border-radius: none;
+}
+
+.bg-primary {
+  background: var(--color-gradient-primary);
+}
+
+.bg-secondary {
+  background: var(--color-gradient-secondary);
+}
+
+.bg-tertiary {
+  background: var(--color-gradient-tertiary);
+}
+
+.bg-flat {
+  background-color: var(--color-white);
+}

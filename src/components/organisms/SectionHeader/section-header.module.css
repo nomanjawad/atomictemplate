@@ -1,0 +1,21 @@
+/*
+ * section-header.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.section_header {
+  max-width: 630px !important;
+}
+
+.section_description {
+  color: var(--color-foreground-tertiary);
+}
+
+@media (min-width: 780px) {
+  .section_title,
+  .section_description {
+    text-align: center;
+  }
+}

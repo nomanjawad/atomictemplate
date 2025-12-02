@@ -1,0 +1,20 @@
+/*
+ * icon-with-lebel.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.icon_with_label {
+  width: fit-content !important;
+}
+
+.icon_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 100%;
+  background-color: var(--color-bg-disabled);
+}

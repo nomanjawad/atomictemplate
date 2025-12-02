@@ -1,0 +1,16 @@
+/*
+ * external-link.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.external_link {
+  text-decoration: none;
+  color: var(--color-foreground);
+  display: inline-block;
+}
+
+/* .external_link:hover {
+  transform: scale(1.02);
+} */

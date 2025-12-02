@@ -1,0 +1,87 @@
+/*
+ * content.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.content {
+  position: relative;
+  background: transparent;
+}
+
+.b-normal {
+  border: 1px solid var(--color-border);
+}
+
+.b-none {
+  border: unset;
+}
+
+.b-accent {
+  border: 1px solid var(--color-border-accent);
+}
+
+/* control shadow class*/
+.s-large {
+  box-shadow: var(--shadow-box-large);
+}
+
+.s-medium {
+  box-shadow: var(--shadow-box-medium);
+}
+
+.s-small {
+  box-shadow: var(--shadow-box-small);
+}
+
+.s-x-small {
+  box-shadow: var(--shadow-box-x-small);
+}
+
+.s-none {
+  box-shadow: none;
+}
+
+/* control padding class*/
+.p-small {
+  padding: var(--space-sm);
+}
+.p-medium {
+  padding: var(--space-md);
+}
+.p-large {
+  padding: var(--space-lg);
+}
+.p-x-large {
+  padding: var(--space-xl);
+}
+
+.p-xx-large {
+  padding: var(--space-2xl);
+}
+
+.p-none {
+  padding: unset;
+}
+
+/* control radius class*/
+.r-large {
+  border-radius: var(--radius-lg);
+}
+
+.r-medium {
+  border-radius: var(--radius-md);
+}
+
+.r-small {
+  border-radius: var(--radius-sm);
+}
+
+.r-full {
+  border-radius: 100%;
+}
+
+.r-none {
+  border-radius: none;
+}

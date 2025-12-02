@@ -1,0 +1,10 @@
+/*
+ * text-block.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.text_block {
+  width: fit-content !important;
+}

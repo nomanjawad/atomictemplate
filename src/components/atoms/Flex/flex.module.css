@@ -1,0 +1,120 @@
+/*
+ * flex.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.flex {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.full_height {
+  height: 100%;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.column-reverse {
+  flex-direction: column-reverse;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-none {
+  gap: unset;
+}
+
+.gap-small {
+  gap: var(--space-sm);
+}
+
+.gap-medium {
+  gap: var(--space-md);
+}
+
+.gap-large {
+  gap: var(--space-lg);
+}
+
+.gap-x-large {
+  gap: var(--space-xl);
+}
+
+.gap-xx-large {
+  gap: var(--space-2xl);
+}
+
+.child-count-six > * {
+  flex: 0 0 calc(16.66% - 10px);
+}
+
+.child-count-five > * {
+  flex: 0 0 calc(20% - 10px);
+}
+
+.child-count-three > * {
+  flex: 0 0 calc(33% - 10px);
+}
+
+.child-count-two > * {
+  flex: 0 0 calc(50% - 10px);
+}
+
+.child-count-four > * {
+  flex: 0 0 calc(25% - 10px);
+}
+
+.child-count-auto > * {
+  flex: unset;
+}
+
+@media (max-width: 740px) {
+  .child-count-three > *,
+  .child-count-two > *,
+  .child-count-four > * {
+    flex: 0 0 100%;
+  }
+}

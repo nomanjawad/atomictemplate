@@ -1,0 +1,23 @@
+/*
+ * globals.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+/* Tailwind CSS v4 imports */
+@import "tailwindcss";
+
+/* Project-specific styles */
+@layer base {
+  /* Project-specific base styles */
+  @import "../styles/base.css";
+
+  /* Theme overrides */
+  @import "../styles/theme.css";
+}
+
+/* Project-specific component utilities */
+@layer components {
+  @import "../styles/shared.css";
+}

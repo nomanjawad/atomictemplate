@@ -1,0 +1,66 @@
+/*
+ * whatsapp-section.module.css
+ * Created by Abdul Jabbar Gazi
+ * Copyright (c) 2025 skytechSolutions
+ * All rights reserved
+ */
+
+.whatsapp_container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999; /* High z-index to stay above all content */
+  pointer-events: none; /* Allow clicks to pass through container */
+}
+
+.whatsapp_link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  pointer-events: auto; /* Enable clicks on the link */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.whatsapp_icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp_image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 99px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .whatsapp_container {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsapp_link {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .whatsapp_container {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .whatsapp_link {
+    width: 50px;
+    height: 50px;
+  }
+}

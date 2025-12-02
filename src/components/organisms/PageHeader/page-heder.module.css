@@ -1,0 +1,49 @@
+/*
+ * page-heder.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.page_header {
+  top: 0;
+  padding: var(--space-lg) 0;
+  border-radius: 0 0 32px 32px;
+  background: linear-gradient(180deg, #bfcdff 0%, #0052cc 100%) !important;
+}
+
+.route_details {
+  min-width: 343px;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-white) !important;
+}
+
+.background {
+  position: absolute;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  padding: 100px 0px;
+}
+
+.h-large {
+  min-height: 70vh;
+}
+.h-medium {
+  min-height: 45vh;
+}
+
+@media (max-width: 760px) {
+  .content {
+    padding: 50px 0px;
+  }
+  .route_details {
+    padding-bottom: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}

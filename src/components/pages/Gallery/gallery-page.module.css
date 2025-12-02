@@ -1,0 +1,11 @@
+/*
+ * gallery-page.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 skytechSolutions
+ * All rights reserved
+ */
+.gallery_header_image {
+  position: relative;
+  width: 120%;
+  object-fit: contain; /* or 'contain', depending on layout */
+}

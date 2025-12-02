@@ -1,0 +1,34 @@
+/*
+ * container.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  /* overflow-y: hidden; */
+}
+
+.regular {
+  max-width: 1440px;
+  padding: 0 var(--space-md);
+}
+
+.full {
+  max-width: 100%;
+  padding: 0;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 740px) {
+  .regular {
+    max-width: 100%;
+    padding: 0 var(--space-md);
+  }
+}

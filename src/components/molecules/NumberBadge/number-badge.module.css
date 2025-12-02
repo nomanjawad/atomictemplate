@@ -1,0 +1,33 @@
+/*
+ * number-badge.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.number_badge {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding-top: 2px;
+  /* padding-top: 0.8%; */
+}
+
+.s-circle {
+  border-radius: 100%;
+}
+
+.s-rectangle {
+  border-radius: var(--radius-sm);
+}
+
+.active_badge {
+  font: var(--font-urbanist);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.align_text {
+  text-align: center;
+  align-self: center;
+}

@@ -1,0 +1,57 @@
+/*
+ * banner.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.banner {
+  width: 80%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #bfcdff 0%, #0052cc 100%);
+}
+
+.banner_wrapper {
+  max-width: 65%;
+  text-align: center;
+}
+
+.circle_inner {
+  z-index: 5;
+  right: -170;
+  top: -220;
+  position: absolute;
+  width: 375.198px;
+  height: 375.198px;
+  transform: rotate(-42.776deg);
+  flex-shrink: 0;
+  border-radius: 375.198px;
+  background: rgba(255, 255, 255, 0.7);
+  opacity: 0.2;
+}
+
+.circle_outer {
+  z-index: 6;
+  right: -120;
+  top: -160;
+  position: absolute;
+  width: 275.145px;
+  height: 275.145px;
+  transform: rotate(-42.776deg);
+  flex-shrink: 0;
+  border-radius: 275.145px;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0.1;
+}
+
+@media (max-width: 1250px) {
+  .banner {
+    width: 100%;
+  }
+
+  .banner_wrapper {
+    max-width: unset;
+    width: 100%;
+  }
+}

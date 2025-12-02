@@ -1,0 +1,29 @@
+/*
+ * primary-action.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.primary_action {
+  display: inline-flex;
+  padding: 16px 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--color-bg-secondary);
+  width: fit-content;
+  cursor: pointer;
+}
+
+.primary_action:hover {
+  background: #e6c200;
+  /* opacity: 0.8; */
+}
+
+@media (max-width: 768px) {
+  .primary_action {
+    padding: 10px 22px;
+  }
+}

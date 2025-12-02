@@ -1,0 +1,44 @@
+# -----------------------------
+# Commit Message Template
+# -----------------------------
+# Format:
+# <type>(<scope>): <short summary>
+#
+# - Use the imperative mood ("fix bug" not "fixed bug")
+# - Keep the first line under 50 chars
+# - Leave one blank line before the body
+# - Wrap body text at ~72 chars
+#
+# Example:
+# feat(auth): add JWT-based login
+#
+# -----------------------------
+
+<type>(<scope>): <summary>
+
+# Body (optional)
+# Explain WHY, not WHAT.
+# Use bullet points if needed:
+# - Added X because...
+# - Refactored Y to improve...
+#
+# Footer (optional)
+# References, breaking changes, issue IDs
+# BREAKING CHANGE: description
+# Closes #123
+
+# -----------------------------
+# 🔹 Common Commit Types
+# -----------------------------
+# feat     → A new feature
+# fix      → A bug fix
+# chore    → Routine tasks (deps, configs, build tools)
+# docs     → Documentation only
+# style    → Code style changes (no logic)
+# refactor → Code restructuring without behavior change
+# perf     → Performance improvements
+# test     → Adding or fixing tests
+# build    → Build system or external dependency changes
+# ci       → CI/CD config changes
+# revert   → Revert a previous commit
+# -----------------------------

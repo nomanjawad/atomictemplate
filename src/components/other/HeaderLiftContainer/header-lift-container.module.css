@@ -1,0 +1,30 @@
+/*
+ * header-lift-container.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.left_header_section {
+  margin-top: -5rem;
+}
+
+.header_lift_container {
+  position: relative;
+  width: 80%;
+  padding: 16px;
+  z-index: 1;
+  height: fit-content;
+  margin: calc(-40vh + 5rem) auto 0;
+}
+
+.children_container {
+  position: relative;
+  width: 100%;
+}
+
+@media (max-width: 740px) {
+  .header_lift_container {
+    width: 100%;
+  }
+}

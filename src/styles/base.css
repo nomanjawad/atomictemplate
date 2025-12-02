@@ -1,0 +1,47 @@
+/*
+ * base.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+/* Project-specific base styles not covered by Tailwind */
+
+/* Hide scrollbar for webkit browsers */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Project-specific body styles */
+body {
+  color: var(--color-foreground);
+  background: var(--color-background);
+  font-family: var(--font-inter, --font-urbanist, system-ui), -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Project-specific main layout */
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Disable image selection (project requirement) */
+img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  main {
+    gap: 2rem;
+  }
+}

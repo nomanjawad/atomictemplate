@@ -1,0 +1,164 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    // "baseUrl": ".",
+    "paths": {
+      // Remove the generic @/* mapping that's interfering
+      // "@/*": ["./src/*"], // <-- Remove this line
+      // Keep only your specific mappings
+      // "@components": ["./src/components"],
+      // "@components/*": ["./src/components/*"],
+      "@animations": [
+        "./src/components/animations"
+      ],
+      "@animations/*": [
+        "./src/components/animations/*"
+      ],
+      "@atoms": [
+        "./src/components/atoms"
+      ],
+      "@atoms/*": [
+        "./src/components/atoms/*"
+      ],
+      "@molecules": [
+        "./src/components/molecules"
+      ],
+      "@molecules/*": [
+        "./src/components/molecules/*"
+      ],
+      "@organisms": [
+        "./src/components/organisms"
+      ],
+      "@organisms/*": [
+        "./src/components/organisms/*"
+      ],
+      "@other-component": [
+        "./src/components/other"
+      ],
+      "@other-component/*": [
+        "./src/components/other/*"
+      ],
+      "@layouts": [
+        "./src/components/layouts"
+      ],
+      "@layouts/*": [
+        "./src/components/layouts/*"
+      ],
+      "@constants": [
+        "./src/constants"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
+      "@data": [
+        "./src/data"
+      ],
+      "@data/*": [
+        "./src/data"
+      ],
+      "@hooks": [
+        "./src/hooks"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@validations": [
+        "./src/validations"
+      ],
+      "@validations/*": [
+        "./src/validations/*"
+      ],
+      "@pages": [
+        "./src/components/pages/index.ts"
+      ],
+      "@pages/*": [
+        "./src/components/pages/*"
+      ],
+      "@store": [
+        "./src/store"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@types": [
+        "./src/types"
+      ],
+      "@types/*": [
+        "./src/types/*"
+      ],
+      "@libs": [
+        "./src/lib"
+      ],
+      "@libs/*": [
+        "./src/lib/*"
+      ],
+      "@utils": [
+        "./src/utils"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@services": [
+        "./src/services"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@icons": [
+        "./public/icons"
+      ],
+      "@icons/*": [
+        "./public/icons"
+      ],
+      "@images": [
+        "./public/images"
+      ],
+      "@images/*": [
+        "./public/images"
+      ],
+      "@video": [
+        "./public/videos"
+      ],
+      "@videos/*": [
+        "./public/videos"
+      ],
+      "@styles": [
+        "./src/styles"
+      ],
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/__tests__/**"
+  ]
+}

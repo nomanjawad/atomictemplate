@@ -1,0 +1,19 @@
+/*
+ * animated-toggle-arrow.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.arrow:hover {
+  opacity: 0.8;
+}

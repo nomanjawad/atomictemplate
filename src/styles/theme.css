@@ -1,0 +1,25 @@
+/*
+ * theme.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+/* Theme overrides: only override semantic color tokens here */
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+} */
+
+/* Optional explicit theme hook */
+/* [data-theme="dark"] {
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+} */

@@ -1,0 +1,23 @@
+/*
+ * info-card.module.css
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ * All rights reserved
+ */
+
+.info_card {
+  width: 100%;
+}
+
+.info_image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 740px) {
+  .info_card_outer_flex {
+    flex-direction: column;
+  }
+}
