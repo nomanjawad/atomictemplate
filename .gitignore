@@ -26,6 +26,9 @@
 *.pem
 .husky/_/
 
+# npm
+.npmignore
+
 # debug
 npm-debug.log*
 yarn-debug.log*

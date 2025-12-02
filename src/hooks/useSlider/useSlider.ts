@@ -9,7 +9,6 @@
 "use client"
 
 import { useState, useRef, useEffect, useMemo } from "react"
-import { useSwipeable } from "react-swipeable"
 
 import {
   UseSliderOption,
@@ -122,14 +121,45 @@ export default function useSlider({
     })
   }, [activeIndex])
 
-  // Swipe handlers
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => forwardIndex(),
-    onSwipedRight: () => backwardIndex(),
-    preventDefaultTouchmoveEvent: true,
-    preventScrollOnSwipe: true,
-    trackMouse: true,
-  })
+  // Native touch/swipe handlers (replacing react-swipeable)
+  useEffect(() => {
+    const element = containerRef.current
+    if (!element) return
+
+    let touchStartX = 0
+    let touchEndX = 0
+    const minSwipeDistance = 50
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX
+    }
+
+    const handleTouchMove = (e: TouchEvent) => {
+      touchEndX = e.touches[0].clientX
+    }
+
+    const handleTouchEnd = () => {
+      const distance = touchStartX - touchEndX
+      const isLeftSwipe = distance > minSwipeDistance
+      const isRightSwipe = distance < -minSwipeDistance
+
+      if (isLeftSwipe) {
+        forwardIndex()
+      } else if (isRightSwipe) {
+        backwardIndex()
+      }
+    }
+
+    element.addEventListener("touchstart", handleTouchStart)
+    element.addEventListener("touchmove", handleTouchMove)
+    element.addEventListener("touchend", handleTouchEnd)
+
+    return () => {
+      element.removeEventListener("touchstart", handleTouchStart)
+      element.removeEventListener("touchmove", handleTouchMove)
+      element.removeEventListener("touchend", handleTouchEnd)
+    }
+  }, [nextIndex, previousIndex])
 
   return {
     nextIndex,
@@ -141,7 +171,6 @@ export default function useSlider({
     updateActiveIndex,
     forwardIndex,
     backwardIndex,
-    swipeHandlers,
     defaultIntervalSecond,
     slideDirection,
     setIsAutoChange,

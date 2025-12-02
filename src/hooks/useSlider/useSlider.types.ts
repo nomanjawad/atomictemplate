@@ -7,7 +7,6 @@
  */
 
 import type { RefObject } from "react"
-import type { SwipeableHandlers } from "react-swipeable"
 
 export type SlideDirection = "left" | "right"
 
@@ -29,7 +28,6 @@ export interface UseSliderReturn {
   updateActiveIndex: (index: number) => void
   forwardIndex: () => void
   backwardIndex: () => void
-  swipeHandlers: SwipeableHandlers
   defaultIntervalSecond: number
   slideDirection: SlideDirection
   setIsAutoChange: (value: boolean) => void

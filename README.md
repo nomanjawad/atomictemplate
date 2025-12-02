@@ -1,49 +1,81 @@
-# Next.js + TypeScript Production Template
+# AtomicTemplate
 
-> A production-ready Next.js starter with Atomic Design, comprehensive component documentation, and best practices built-in.
+> Production-ready Next.js template powered by atomic design methodology and data-driven architecture.
 
+[![npm version](https://img.shields.io/npm/v/@nomanjawad/atomictemplate.svg)](https://www.npmjs.com/package/@nomanjawad/atomictemplate)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.17-38bdf8)](https://tailwindcss.com/)
 [![React](https://img.shields.io/badge/React-19.2.0-61dafb)](https://react.dev/)
 
-```
-Created by Noman Jawad
-Copyright (c) 2025 noman_jawad
-All rights reserved
-```
+AtomicTemplate is an enterprise-grade Next.js 15 starter built on atomic design principles, enabling teams to build consistent, scalable web applications with speed and confidence.
 
 ---
 
 ## ✨ Features
 
-- 🎨 **Atomic Design Architecture** - Organized components (atoms, molecules, organisms, layouts, pages)
-- 📚 **Comprehensive JSDoc Documentation** - All components fully documented with usage examples
-- 🎯 **Hybrid Styling** - Tailwind CSS + CSS Modules for maximum flexibility
-- 🚀 **Next.js 15 App Router** - Server Components, streaming, and parallel routes
-- 📦 **TypeScript** - Full type safety with strict mode
-- 🎭 **Design Tokens** - Centralized colors, spacing, typography, shadows
-- 🔗 **Absolute Imports** - Clean imports with `@atoms`, `@molecules`, `@data`, etc.
-- 🌐 **Multilingual Ready** - Data structure supports EN, RU, AR translations
-- ✅ **Validation Layer** - Zod schemas for runtime type checking
-- 🎬 **GSAP Animations** - Smooth, performant animations
-- 📝 **Git Hooks** - Conventional commits with Commitlint
+### 🏗️ Architecture
+
+- 🧬 **Atomic Design System** - Complete component hierarchy (atoms → molecules → organisms → pages)
+- 📊 **Data-Driven Architecture** - Centralized data management with easy API/CMS migration
+- 🔄 **One-Way Data Flow** - Predictable state management pattern
+
+### 💻 Development Experience
+
+- 📚 **Comprehensive Documentation** - 31 guides with 3,400+ lines covering all aspects
+- 🔗 **Custom Import Aliases** - Clean imports with `@atoms`, `@molecules`, `@data`, `@validations`, etc.
+- 🎯 **Type-Safe Development** - Full TypeScript with Zod runtime validation
+- 🚀 **Production-Ready** - ESLint, Prettier, Husky, Commitlint pre-configured
+
+### 🎨 Styling & Animation
+
+- 🎭 **Hybrid Styling** - Tailwind CSS 4 + CSS Modules for maximum flexibility
+- 🎬 **GSAP Animations** - Professional animations with ScrollTrigger
+- 🎨 **Design Tokens** - Centralized colors, spacing, typography, shadows
+
+### 🛠️ Modern Stack
+
+- ⚡ **Next.js 15.5.4** - App Router with Server Components
+- ⚛️ **React 19.2.0** - Latest React features
+- 🎯 **TypeScript 5.9.3** - Full type safety
+- 🌐 **Internationalization Ready** - Multi-language data structure
 - 🧪 **Testing Ready** - Jest configuration included
-- 🎯 **ESLint + Custom Rules** - Enforce best practices automatically
+- 📦 **State Management** - Zustand for lightweight state
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 18+
-- pnpm (recommended) or npm
+- Node.js ≥18.17.0
+- pnpm ≥8.0.0 (recommended)
 
 ### Installation
 
+#### Option 1: Using npm (Recommended)
+
+```bash
+# Create new project from template
+npx create-next-app@latest my-app --example https://github.com/nomanjawad/atomictemplate
+
+# Navigate to project
+cd my-app
+
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+```
+
+#### Option 2: Clone Repository
+
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd skytech_node_template
+git clone https://github.com/nomanjawad/atomictemplate.git my-project
+
+# Navigate to project
+cd my-project
 
 # Install dependencies
 pnpm install
@@ -53,6 +85,12 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see your app.
+
+### First Steps
+
+1. **Read the Quick Start** - [docs/01-getting-started/quick-start.md](docs/01-getting-started/quick-start.md)
+2. **Understand Data Pattern** - [docs/02-architecture/data-pattern-quick-reference.md](docs/02-architecture/data-pattern-quick-reference.md)
+3. **Create Your First Page** - Follow the [example page guide](docs/03-components/example-page-guide.md)
 
 ### Your First Page
 
@@ -81,24 +119,35 @@ export default function MyPagePage() {
 
 ## 📖 Documentation
 
-### Essential Guides
+AtomicTemplate includes **31 comprehensive guides** organized into 5 categories:
 
-| Guide                                                                | Description                          |
-| -------------------------------------------------------------------- | ------------------------------------ |
-| **[Quick Start](docs/QUICK-START.md)**                               | 5-minute guide to get up and running |
-| **[Component Documentation](docs/COMPONENT-DOCUMENTATION-GUIDE.md)** | All components with usage examples   |
-| **[Example Page Guide](docs/EXAMPLE-PAGE-GUIDE.md)**                 | Complete page creation walkthrough   |
-| **[User Guide](docs/user-guide.md)**                                 | Comprehensive setup and usage        |
-| **[Data Layer Guide](docs/data-folder-guide.md)**                    | How to use the data layer            |
-| **[Tailwind Integration](docs/tailwind-integration.md)**             | Hybrid styling approach              |
+### Essential Reading
 
-### Reference
+| Document                                                                             | Priority | Description                      |
+| ------------------------------------------------------------------------------------ | -------- | -------------------------------- |
+| [Quick Start](docs/01-getting-started/quick-start.md)                                | 🔥🔥🔥   | Get productive in 15 minutes     |
+| [Data Pattern Quick Reference](docs/02-architecture/data-pattern-quick-reference.md) | 🔥🔥🔥   | Essential for creating any page  |
+| [Data-Driven Architecture](docs/02-architecture/data-driven-architecture.md)         | 🔥🔥     | Deep understanding of the system |
+| [Component Documentation](docs/03-components/component-documentation-guide.md)       | 🔥🔥     | Learn the component system       |
+| [Backend Migration Guide](docs/02-architecture/migration-to-backend.md)              | 🔥       | When ready to connect APIs       |
 
-- [Template Overview](docs/template-overview.md) - Atomic Design overview
-- [File Structure](docs/file-structure.md) - Project organization
-- [Imports Guide](docs/imports.md) - Absolute paths and aliases
-- [ESLint Rules](docs/rules.md) - Custom linting rules
-- [Naming Conventions](docs/naming.md) - Naming standards
+### Documentation Categories
+
+📂 **[01-getting-started/](docs/01-getting-started/)** - New user onboarding  
+📂 **[02-architecture/](docs/02-architecture/)** - Data patterns and architecture  
+📂 **[03-components/](docs/03-components/)** - Component system guides  
+📂 **[04-development/](docs/04-development/)** - Development rules and guidelines  
+📂 **[05-specifications/](docs/05-specifications/)** - Project specifications
+
+### Quick Navigation
+
+- **"I'm new here"** → [Quick Start](docs/01-getting-started/quick-start.md)
+- **"I need to create a page"** → [Data Pattern Quick Reference](docs/02-architecture/data-pattern-quick-reference.md)
+- **"How do components work?"** → [Component Guide](docs/03-components/component-documentation-guide.md)
+- **"I need to connect to API"** → [Backend Migration](docs/02-architecture/migration-to-backend.md)
+- **"Project structure?"** → [File Structure](docs/01-getting-started/file-structure.md)
+
+See [Documentation Structure](docs/documentation-structure.md) for complete navigation guide.
 
 > 💡 **Tip**: All components have inline JSDoc documentation. Hover over any component in your IDE to see full documentation!
 
@@ -378,25 +427,64 @@ The template includes complete example pages:
 4. Update relevant documentation
 5. Test your changes (`pnpm build` and `pnpm test`)
 
+## � Project Stats
+
+- **31** documentation files
+- **3,400+** lines of documentation
+- **50+** reusable components
+- **100%** TypeScript coverage
+- **Zero** runtime errors in production build
+
+## 🗺️ Roadmap
+
+- [ ] Storybook integration
+- [ ] More pre-built page templates
+- [ ] Dark mode support
+- [ ] Accessibility improvements (WCAG 2.1 AA)
+- [ ] Performance monitoring integration
+- [ ] E2E testing examples
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](docs/01-getting-started/user-guide.md) first.
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes using [Conventional Commits](docs/04-development/rules/commits.md)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
 ## 📄 License
 
-All rights reserved - Created by Dewan Meadown (c) 2025
+MIT License - see [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+Copyright (c) 2025 Noman Jawad
+
+## 🆘 Support & Community
 
 ### Getting Help
 
-1. Check the [Quick Start Guide](docs/QUICK-START.md)
-2. Read the [Component Documentation](docs/COMPONENT-DOCUMENTATION-GUIDE.md)
-3. Review the [Example Page](docs/EXAMPLE-PAGE-GUIDE.md)
-4. Hover over components in IDE for inline docs
+1. 📚 [Documentation](docs/README.md) - Start here for all guides
+2. 🐛 [Issue Tracker](https://github.com/nomanjawad/atomictemplate/issues) - Report bugs or request features
+3. 💬 [Discussions](https://github.com/nomanjawad/atomictemplate/discussions) - Ask questions and share ideas
 
 ### Common Issues
 
-**Import errors**: Check [Imports Guide](docs/imports.md) for correct aliases  
-**Styling issues**: See [Tailwind Integration](docs/tailwind-integration.md)  
-**Component usage**: Hover over component in IDE for full documentation
+**Import errors?** → Check [Imports Guide](docs/04-development/imports.md)  
+**Styling issues?** → See [Tailwind Integration](docs/04-development/tailwind-integration.md)  
+**Component usage?** → Hover over component in IDE for full documentation  
+**Data patterns?** → Read [Data Pattern Quick Reference](docs/02-architecture/data-pattern-quick-reference.md)
+
+## 🌟 Show Your Support
+
+If this template helped you, please give it a ⭐️ on [GitHub](https://github.com/nomanjawad/atomictemplate)!
+
+## 📢 Changelog
+
+See [CHANGELOG](docs/02-architecture/changelog-data-driven.md) for recent updates.
 
 ---
 
-Built with ❤️ using Next.js, TypeScript, and Tailwind CSS
+**Built with ❤️ using Next.js, TypeScript, and Atomic Design**
+
+[Website](https://github.com/nomanjawad/atomictemplate) · [Documentation](docs/README.md) · [Report Bug](https://github.com/nomanjawad/atomictemplate/issues) · [Request Feature](https://github.com/nomanjawad/atomictemplate/issues)
