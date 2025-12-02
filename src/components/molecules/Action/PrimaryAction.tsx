@@ -5,8 +5,8 @@
  * All rights reserved
  */
 
-import { Content, InternalLink, BaseImage } from "@atoms"
-import { icoArrowRight } from "@icons"
+import { Content, InternalLink } from "@atoms"
+import { ArrowRight } from "lucide-react"
 
 import styles from "./primary-action.module.css"
 
@@ -104,9 +104,7 @@ export default function PrimaryAction({
   return (
     <Content className={styles.primary_action}>
       <InternalLink href={href}>{title}</InternalLink>
-      {isArrowVisible && (
-        <BaseImage src={icoArrowRight} alt={title} width={10} height={20} />
-      )}
+      {isArrowVisible && <ArrowRight className="w-4 h-5" />}
     </Content>
   )
 }

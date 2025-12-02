@@ -15,12 +15,7 @@ export default function TermsConditionPage() {
   return (
     <Section padding="lg">
       <Container>
-        <Content
-          padding="large"
-          radius="none"
-          shadow="none"
-          className={styles.terms_page}
-        >
+        <Content className={styles.terms_page}>
           <Content align="center" justify="center" direction="column" wrap>
             <BaseText tag="h2">Terms & Conditions</BaseText>
             <BaseText tag="h4" variant="secondary" weight="semibold">
@@ -34,15 +29,10 @@ export default function TermsConditionPage() {
             </BaseText>
           </Content>
         </Content>
-        <Content
-          padding="large"
-          radius="none"
-          shadow="none"
-          className={styles.terms_page}
-        >
+        <Content className={styles.terms_page}>
           <Content direction="column" gap="xl">
             {termsConditionSectionData.map((section, index) => (
-              <Content key={index} padding="medium" radius="none">
+              <Content key={index}>
                 <Content direction="column" gap="lg">
                   <BaseText tag="h3" variant="primary">
                     {section.title}
@@ -87,7 +77,7 @@ export default function TermsConditionPage() {
                 </Content>
               </Content>
             ))}
-            <Content padding="medium" radius="none">
+            <Content>
               <Content
                 direction="column"
                 gap="sm"

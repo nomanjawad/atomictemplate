@@ -167,7 +167,7 @@ export default function RouteIndicator() {
   }
 
   return (
-    <Content className={styles.router_indicator} padding="small" radius="small">
+    <Content className={styles.router_indicator}>
       <Content>
         {leafList.map((path, index) => (
           <Content

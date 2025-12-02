@@ -5,4 +5,5 @@
  * All rights reserved
  */
 
-export { Section, type SectionProps } from "./Section"
+export { Section } from "./Section"
+export type { SectionProps } from "./Section.types"

@@ -19,7 +19,7 @@ export default function PageHeaderDefaultContent() {
 
   return (
     <Content justify="center">
-      <Content radius="medium" className={styles.route_details}>
+      <Content className={styles.route_details}>
         <Content direction="column" gap="xl" align="center" justify="center">
           <RouteIndicator />
           <BaseText tag="h1" variant="banner">

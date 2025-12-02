@@ -52,6 +52,7 @@
  */
 
 import { validator } from "@libs"
+import { ButtonSchema } from "../common/button.schema"
 
 /**
  * ============================================================================
@@ -61,39 +62,9 @@ import { validator } from "@libs"
  */
 
 /**
- * Button Schema
- * -------------
- * Validates button/link data structure
- *
- * REQUIRED FIELDS:
- * - text: Button label text
- * - href: URL or route path
- *
- * OPTIONAL FIELDS:
- * - variant: Button style variant
- *
- * VALIDATION RULES:
- * - text must be non-empty string
- * - href must be valid string (route or URL)
- * - variant must be one of predefined values
+ * Note: ButtonSchema is imported from common/button.schema.ts
+ * This avoids duplication and maintains consistency across the app.
  */
-export const ButtonSchema = validator.object({
-  text: validator
-    .string("Button text must be a string")
-    .min(1, "Button text cannot be empty")
-    .max(50, "Button text is too long (max 50 characters)"),
-
-  href: validator
-    .string("Button href must be a string")
-    .min(1, "Button href cannot be empty"),
-
-  variant: validator
-    .enum(
-      ["primary", "secondary", "outline"],
-      "Variant must be 'primary', 'secondary', or 'outline'"
-    )
-    .optional(),
-})
 
 /**
  * Link Schema

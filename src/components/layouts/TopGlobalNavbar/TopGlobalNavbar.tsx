@@ -2,8 +2,7 @@
 
 import { LanguageSelector } from "./LanguageSelector"
 import { navbarData } from "@data"
-import { icoEmail, icoPhone } from "@icons"
-import { BaseImage } from "@atoms"
+import { Mail, Phone } from "lucide-react"
 
 export default function TopGlobalNavbar() {
   return (
@@ -12,23 +11,11 @@ export default function TopGlobalNavbar() {
         {/* Left Section */}
         <div className="flex flex-row sm:flex-row gap-5 sm:gap-4 text-sm items-center whitespace-nowrap max-sm:flex-col max-sm:items-start max-sm:gap-1 max-sm:text-xs flex-1 min-w-0">
           <span className="flex items-center gap-1.5 whitespace-nowrap overflow-hidden text-ellipsis">
-            <BaseImage
-              src={icoEmail}
-              alt="Email"
-              width={16}
-              height={16}
-              className="shrink-0 brightness-0 invert w-4 h-4 max-sm:w-3 max-sm:h-3 md:w-3.5 md:h-3.5"
-            />
+            <Mail className="shrink-0 w-4 h-4 max-sm:w-3 max-sm:h-3 md:w-3.5 md:h-3.5" />
             {`${navbarData.topNavbar.email}`}
           </span>
           <span className="flex items-center gap-1.5 whitespace-nowrap overflow-hidden text-ellipsis">
-            <BaseImage
-              src={icoPhone}
-              alt="Phone"
-              width={16}
-              height={16}
-              className="shrink-0 brightness-0 invert w-4 h-4 max-sm:w-3 max-sm:h-3 md:w-3.5 md:h-3.5"
-            />
+            <Phone className="shrink-0 w-4 h-4 max-sm:w-3 max-sm:h-3 md:w-3.5 md:h-3.5" />
             {`${navbarData.topNavbar.phone}`}
           </span>
         </div>

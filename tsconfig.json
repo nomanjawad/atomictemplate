@@ -22,7 +22,6 @@
         "name": "next"
       }
     ],
-    // "baseUrl": ".",
     "paths": {
       // Remove the generic @/* mapping that's interfering
       // "@/*": ["./src/*"], // <-- Remove this line
@@ -124,12 +123,6 @@
       ],
       "@services/*": [
         "./src/services/*"
-      ],
-      "@icons": [
-        "./public/icons"
-      ],
-      "@icons/*": [
-        "./public/icons"
       ],
       "@images": [
         "./public/images"

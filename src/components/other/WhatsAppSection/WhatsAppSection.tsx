@@ -7,8 +7,7 @@
 
 "use client"
 
-import { BaseImage } from "@atoms"
-import { icoWhatsApp } from "@icons"
+import { MessageCircle } from "lucide-react"
 import styles from "./whatsapp-section.module.css"
 
 interface WhatsAppSectionProps {
@@ -20,14 +19,13 @@ interface WhatsAppSectionProps {
 export default function WhatsAppSection({
   phoneNumber = "+880 1671-777774",
   message = "Hello! I'm interested in AMCO Skills.",
-  image,
 }: WhatsAppSectionProps) {
   //Removing any non-digit characters
   const formattedPhone = phoneNumber.replace(/\D/g, "")
 
   //WhatsApp URL
   const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(
-    message
+    message,
   )}`
 
   return (
@@ -40,19 +38,7 @@ export default function WhatsAppSection({
         aria-label="Contact us on WhatsApp"
       >
         <div className={styles.whatsapp_icon}>
-          {image ? (
-            <BaseImage
-              src={image}
-              alt="WhatsApp"
-              className={styles.whatsapp_image}
-            />
-          ) : (
-            <BaseImage
-              src={icoWhatsApp}
-              alt="WhatsApp"
-              className={styles.whatsapp_image}
-            />
-          )}
+          <MessageCircle className="w-12 h-12 text-white" />
         </div>
       </a>
     </div>

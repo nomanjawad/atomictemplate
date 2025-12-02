@@ -12,7 +12,7 @@ import BannerCircles from "./BannerCircles"
 import { BannerProps } from "./banner.type"
 import { BaseText, Container, Content, Section } from "@atoms"
 import { ctaData } from "@data"
-import type { Cta, Button } from "@validations"
+import type { Button } from "@validations"
 
 import styles from "./banner.module.css"
 
@@ -31,15 +31,10 @@ export default function Banner({
     <Section id="banner">
       <Container>
         <Content justify="center" align="center">
-          <Content
-            padding="large"
-            shadow="medium"
-            radius="medium"
-            className={styles.banner}
-          >
+          <Content className={styles.banner}>
             <BannerCircles />
             <Content justify="center" align="center" direction="column">
-              <Content className={styles.banner_wrapper} padding="large">
+              <Content className={styles.banner_wrapper}>
                 <Content
                   direction="column"
                   justify="center"

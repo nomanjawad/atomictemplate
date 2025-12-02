@@ -5,4 +5,5 @@
  * All rights reserved
  */
 
-export { Content, type ContentProps } from "./Content"
+export { Content } from "./Content"
+export type { ContentProps } from "./Content.types"
