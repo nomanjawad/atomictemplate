@@ -2,7 +2,6 @@
 
 > Production-ready Next.js template powered by atomic design methodology and data-driven architecture.
 
-[![npm version](https://img.shields.io/npm/v/@nomanjawad/atomictemplate.svg)](https://www.npmjs.com/package/@nomanjawad/atomictemplate)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue)](https://www.typescriptlang.org/)
@@ -52,23 +51,23 @@ AtomicTemplate is an enterprise-grade Next.js 15 starter built on atomic design 
 
 ### Installation
 
-#### Option 1: Using npm (Recommended)
+#### Using npx (Recommended)
 
 ```bash
-# Create new project from template
-npx create-next-app@latest my-app --example https://github.com/nomanjawad/atomictemplate
+# Create new project
+npx create-atomictemplate
+
+# Or with custom name
+npx create-atomictemplate my-project
 
 # Navigate to project
-cd my-app
-
-# Install dependencies
-pnpm install
+cd my-project
 
 # Start development server
 pnpm dev
 ```
 
-#### Option 2: Clone Repository
+#### Manual Clone
 
 ```bash
 # Clone the repository

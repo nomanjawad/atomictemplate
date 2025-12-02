@@ -1,49 +1,8 @@
 {
-  "name": "@noman_jawad/atomictemplate",
+  "name": "atomictemplate",
   "version": "1.0.0",
-  "private": false,
+  "private": true,
   "license": "MIT",
-  "author": {
-    "name": "Noman Jawad",
-    "email": "nomanzawad@gmail.com",
-    "url": "https://github.com/nomanjawad"
-  },
-  "keywords": [
-    "nextjs",
-    "nextjs-template",
-    "atomic-design",
-    "typescript",
-    "tailwindcss",
-    "react",
-    "starter",
-    "boilerplate",
-    "gsap",
-    "data-driven",
-    "zod",
-    "zustand",
-    "next15",
-    "react19"
-  ],
-  "engines": {
-    "node": ">=18.17.0",
-    "pnpm": ">=8.0.0"
-  },
-  "files": [
-    "src",
-    "public",
-    "docs",
-    "README.md",
-    "LICENSE",
-    "next.config.ts",
-    "tsconfig.json",
-    "tailwind.config.ts",
-    "eslint.config.mjs",
-    "commitlint.config.mjs",
-    "jest.config.ts",
-    "custom.d.ts",
-    "next-env.d.ts",
-    "eslint-rules"
-  ],
   "scripts": {
     "build": "eslint && tsc --noEmit && exec next build --turbopack",
     "dev": "exec next dev --turbopack",
