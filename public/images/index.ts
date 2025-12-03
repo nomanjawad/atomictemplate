@@ -36,3 +36,11 @@ export const imgTest =
 // Page Header Images
 export const imgWorld =
   "https://placehold.co/1920x600/2563eb/ffffff?text=World+Background"
+
+// Placeholder Images for Slider
+export const imgPlaceholder1 =
+  "https://placehold.co/800x600/3b82f6/ffffff?text=Placeholder+1"
+export const imgPlaceholder2 =
+  "https://placehold.co/800x600/ec4899/ffffff?text=Placeholder+2"
+export const imgPlaceholder3 =
+  "https://placehold.co/800x600/10b981/ffffff?text=Placeholder+3"
