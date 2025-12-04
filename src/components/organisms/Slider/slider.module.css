@@ -40,6 +40,15 @@
   justify-content: center;
 }
 
+.sliderTrack.marquee {
+  transition: none;
+  white-space: nowrap;
+}
+
+.sliderTrack.marquee .slide {
+  display: inline-flex;
+}
+
 .slide {
   flex-shrink: 0;
   user-select: none;

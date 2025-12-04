@@ -31,7 +31,8 @@ AtomicTemplate is an enterprise-grade Next.js 15 starter built on atomic design 
 
 - 🎭 **Hybrid Styling** - Tailwind CSS 4 + CSS Modules for maximum flexibility
 - 🎬 **GSAP Animations** - Professional animations with ScrollTrigger
-- 🎨 **Design Tokens** - Centralized colors, spacing, typography, shadows
+- � **Slider Component** - Full-featured carousel with marquee mode
+- �🎨 **Design Tokens** - Centralized colors, spacing, typography, shadows
 
 ### 🛠️ Modern Stack
 

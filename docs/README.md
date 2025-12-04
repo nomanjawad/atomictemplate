@@ -43,6 +43,7 @@ Start here if you're new to the project!
 Learn how to use and create components.
 
 - **[component-documentation-guide.md](03-components/component-documentation-guide.md)** - All components with JSDoc
+- **[slider.md](03-components/slider.md)** - Full-featured Slider/Carousel with marquee mode ⭐
 - **[example-page-guide.md](03-components/example-page-guide.md)** - Complete page creation example
 
 ---

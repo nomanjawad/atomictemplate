@@ -55,8 +55,9 @@ export default function Slider({
     stretch = true,
     centerMode = false,
     pagination = "both",
-    arrows = { position: "inside" },
+    arrows = { position: "outside" },
     autoplay = { enabled: false, delay: 3000, pauseOnHover: true },
+    marquee = { enabled: false, speed: 50, pauseOnHover: true },
     loop = true,
     speed = 500,
     direction = "ltr",
@@ -76,6 +77,7 @@ export default function Slider({
   const sliderRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null)
+  const marqueeAnimationRef = useRef<gsap.core.Tween | null>(null)
 
   // Calculate total slides
   const totalSlides = displayItems.length
@@ -117,9 +119,47 @@ export default function Slider({
     goToSlide(currentIndex - slidesToScroll)
   }
 
-  // Autoplay effect
+  // Marquee effect
   useEffect(() => {
-    if (!autoplay.enabled) return
+    if (!marquee.enabled || !trackRef.current) return
+
+    const track = trackRef.current
+    const trackWidth = track.scrollWidth / 2 // Half because we'll duplicate items
+
+    // Create infinite loop animation
+    const animation = gsap.to(track, {
+      x: direction === "rtl" ? trackWidth : -trackWidth,
+      duration: marquee.speed || 50,
+      ease: "none",
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize((x) => parseFloat(x) % trackWidth),
+      },
+    })
+
+    marqueeAnimationRef.current = animation
+
+    // Pause on hover
+    if (marquee.pauseOnHover && isHovered) {
+      animation.pause()
+    } else {
+      animation.play()
+    }
+
+    return () => {
+      animation.kill()
+    }
+  }, [
+    marquee.enabled,
+    marquee.speed,
+    marquee.pauseOnHover,
+    isHovered,
+    direction,
+  ])
+
+  // Autoplay effect (only if marquee is disabled)
+  useEffect(() => {
+    if (!autoplay.enabled || marquee.enabled) return
 
     const startAutoplay = () => {
       if (autoplayTimerRef.current) {
@@ -146,6 +186,7 @@ export default function Slider({
     autoplay.pauseOnHover,
     isHovered,
     currentIndex,
+    marquee.enabled,
   ])
 
   // Touch/swipe handlers
@@ -217,8 +258,9 @@ export default function Slider({
       onMouseLeave={() => setIsHovered(false)}
       style={{ direction }}
     >
-      {/* Arrows - Outside */}
-      {pagination !== "none" &&
+      {/* Arrows - Outside (hidden in marquee mode) */}
+      {!marquee.enabled &&
+        pagination !== "none" &&
         pagination !== "dots" &&
         arrows.position === "outside" && (
           <>
@@ -242,8 +284,9 @@ export default function Slider({
         )}
 
       <div className={styles.sliderViewport}>
-        {/* Arrows - Inside */}
-        {pagination !== "none" &&
+        {/* Arrows - Inside (hidden in marquee mode) */}
+        {!marquee.enabled &&
+          pagination !== "none" &&
           pagination !== "dots" &&
           arrows.position !== "outside" && (
             <>
@@ -269,29 +312,54 @@ export default function Slider({
         {/* Slider Track */}
         <div
           ref={trackRef}
-          className={`${styles.sliderTrack} ${stretch ? styles.stretch : ""} ${centerMode ? styles.centerMode : ""}`}
+          className={`${styles.sliderTrack} ${stretch ? styles.stretch : ""} ${centerMode ? styles.centerMode : ""} ${marquee.enabled ? styles.marquee : ""}`}
           style={{
             gap: gapValue,
-            cursor: draggable ? (isDragging ? "grabbing" : "grab") : "default",
+            cursor:
+              draggable && !marquee.enabled
+                ? isDragging
+                  ? "grabbing"
+                  : "grab"
+                : "default",
           }}
         >
+          {/* Render items */}
           {displayItems.map((item, index) => (
             <div
-              key={index}
+              key={`original-${index}`}
               className={styles.slide}
               style={{
-                flex: `0 0 calc((100% - ${gapValue} * ${slidesToShow - 1}) / ${slidesToShow})`,
-                minWidth: `calc((100% - ${gapValue} * ${slidesToShow - 1}) / ${slidesToShow})`,
+                flex: marquee.enabled
+                  ? "0 0 auto"
+                  : `0 0 calc((100% - ${gapValue} * ${slidesToShow - 1}) / ${slidesToShow})`,
+                minWidth: marquee.enabled
+                  ? "auto"
+                  : `calc((100% - ${gapValue} * ${slidesToShow - 1}) / ${slidesToShow})`,
               }}
             >
               <InfoCard options={item} />
             </div>
           ))}
+
+          {/* Duplicate items for seamless marquee loop */}
+          {marquee.enabled &&
+            displayItems.map((item, index) => (
+              <div
+                key={`duplicate-${index}`}
+                className={styles.slide}
+                style={{
+                  flex: "0 0 auto",
+                  minWidth: "auto",
+                }}
+              >
+                <InfoCard options={item} />
+              </div>
+            ))}
         </div>
       </div>
 
-      {/* Dots */}
-      {pagination !== "none" && pagination !== "arrows" && (
+      {/* Dots (hidden in marquee mode) */}
+      {!marquee.enabled && pagination !== "none" && pagination !== "arrows" && (
         <div className={styles.dots}>
           {Array.from({ length: maxIndex + 1 }).map((_, index) => (
             <button

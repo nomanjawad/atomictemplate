@@ -29,6 +29,12 @@ export interface AutoplayOptions {
   pauseOnHover?: boolean
 }
 
+export interface MarqueeOptions {
+  enabled?: boolean
+  speed?: number
+  pauseOnHover?: boolean
+}
+
 export interface ResponsiveConfig {
   slidesToShow?: number
   slidesToScroll?: number
@@ -56,6 +62,7 @@ export interface SliderOptions {
 
   // Behavior
   autoplay?: AutoplayOptions
+  marquee?: MarqueeOptions
   loop?: boolean
   speed?: number
   direction?: Direction

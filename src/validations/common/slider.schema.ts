@@ -67,6 +67,13 @@ const ResponsiveOptionsSchema = validator.object({
   "2xl": ResponsiveConfigSchema.optional(),
 })
 
+// Marquee options schema
+const MarqueeOptionsSchema = validator.object({
+  enabled: validator.boolean().optional(),
+  speed: validator.number().positive().optional(),
+  pauseOnHover: validator.boolean().optional(),
+})
+
 // Slider options schema
 const SliderOptionsSchema = validator.object({
   // Display
@@ -82,6 +89,7 @@ const SliderOptionsSchema = validator.object({
 
   // Behavior
   autoplay: AutoplayOptionsSchema.optional(),
+  marquee: MarqueeOptionsSchema.optional(),
   loop: validator.boolean().optional(),
   speed: validator.number().positive().optional(),
   direction: validator.enum(["ltr", "rtl"]).optional(),

@@ -135,6 +135,13 @@ Each component includes:
 **Features**: Composable options-based config, no wrapper div  
 **Usage**: Feature cards, team cards, blog previews, product cards
 
+#### Slider
+
+**Purpose**: Full-featured carousel/slider with GSAP animations  
+**Features**: Marquee mode, autoplay, arrows/dots navigation, touch support, responsive  
+**Usage**: Testimonials, features, logos, products  
+📖 **[See full documentation](./slider.md)**
+
 #### Gallery (Already Documented)
 
 **Purpose**: Image gallery with uniform or masonry layouts  
