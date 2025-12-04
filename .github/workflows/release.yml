@@ -44,10 +44,10 @@ jobs:
           cd cli
           npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
 
-      - name: Publish to npm with provenance
+      - name: Publish to npm
         run: |
           cd cli
-          npm publish --provenance --access public
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
