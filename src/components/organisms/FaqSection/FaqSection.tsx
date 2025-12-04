@@ -15,16 +15,12 @@ import styles from "./faq-section.module.css"
 import { TextBlock } from "@molecules"
 import { FAQ } from "@validations"
 
-export default function FaqSection({
-  faqData,
-}: {
-  faqData?: FAQ
-}) {
+export default function FaqSection({ faqData }: { faqData?: FAQ }) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(0)
+
   if (!faqData || !faqData.items) {
     return null
   }
-
-  const [activeIndex, setActiveIndex] = useState<number | null>(0)
 
   const handleItemClick = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index)
@@ -50,11 +46,7 @@ export default function FaqSection({
           />
         </Content>
 
-        <Content
-          justify="center"
-          gap="xl"
-          className={styles.two_column_layout}
-        >
+        <Content justify="center" gap="xl" className={styles.two_column_layout}>
           <Content direction="column" gap="md" className={styles.left_column}>
             {faqData.items.map((item, index) => (
               <FaqItem
