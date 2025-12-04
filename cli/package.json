@@ -1,0 +1,36 @@
+{
+  "name": "create-atomictemplate",
+  "version": "1.1.2",
+  "description": "CLI tool to scaffold AtomicTemplate - a production-ready Next.js starter",
+  "type": "module",
+  "bin": {
+    "create-atomictemplate": "./index.js"
+  },
+  "keywords": [
+    "create-atomictemplate",
+    "nextjs",
+    "template",
+    "starter",
+    "boilerplate",
+    "cli",
+    "scaffold"
+  ],
+  "author": {
+    "name": "Noman Jawad",
+    "email": "nomanzawad@gmail.com",
+    "url": "https://github.com/nomanjawad"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomanjawad/atomictemplate.git"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1",
+    "prompts": "^2.4.2"
+  }
+}
