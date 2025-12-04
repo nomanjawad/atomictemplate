@@ -7,7 +7,7 @@
 
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useCallback } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { gsap } from "gsap"
 import InfoCard from "../InfoCard/InfoCard"
@@ -84,40 +84,43 @@ export default function Slider({
   const maxIndex = Math.max(0, totalSlides - slidesToShow)
 
   // Navigation handlers
-  const goToSlide = (index: number) => {
-    if (!trackRef.current) return
+  const goToSlide = useCallback(
+    (index: number) => {
+      if (!trackRef.current) return
 
-    let targetIndex = index
+      let targetIndex = index
 
-    // Handle infinite loop
-    if (loop) {
-      if (index < 0) targetIndex = maxIndex
-      if (index > maxIndex) targetIndex = 0
-    } else {
-      targetIndex = Math.max(0, Math.min(maxIndex, index))
-    }
+      // Handle infinite loop
+      if (loop) {
+        if (index < 0) targetIndex = maxIndex
+        if (index > maxIndex) targetIndex = 0
+      } else {
+        targetIndex = Math.max(0, Math.min(maxIndex, index))
+      }
 
-    setCurrentIndex(targetIndex)
+      setCurrentIndex(targetIndex)
 
-    // Calculate translation
-    const slideWidth = trackRef.current.offsetWidth / slidesToShow
-    const translateX = -targetIndex * slideWidth * slidesToScroll
+      // Calculate translation
+      const slideWidth = trackRef.current.offsetWidth / slidesToShow
+      const translateX = -targetIndex * slideWidth * slidesToScroll
 
-    // Animate with GSAP
-    gsap.to(trackRef.current, {
-      x: direction === "rtl" ? -translateX : translateX,
-      duration: speed / 1000,
-      ease: "power2.out",
-    })
-  }
+      // Animate with GSAP
+      gsap.to(trackRef.current, {
+        x: direction === "rtl" ? -translateX : translateX,
+        duration: speed / 1000,
+        ease: "power2.out",
+      })
+    },
+    [loop, maxIndex, slidesToShow, slidesToScroll, direction, speed],
+  )
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     goToSlide(currentIndex + slidesToScroll)
-  }
+  }, [currentIndex, slidesToScroll, goToSlide])
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     goToSlide(currentIndex - slidesToScroll)
-  }
+  }, [currentIndex, slidesToScroll, goToSlide])
 
   // Marquee effect
   useEffect(() => {
@@ -187,6 +190,7 @@ export default function Slider({
     isHovered,
     currentIndex,
     marquee.enabled,
+    nextSlide,
   ])
 
   // Touch/swipe handlers
@@ -242,7 +246,7 @@ export default function Slider({
       slider.removeEventListener("mouseup", handleTouchEnd)
       slider.removeEventListener("mouseleave", handleTouchEnd)
     }
-  }, [draggable, isDragging, direction])
+  }, [draggable, isDragging, direction, nextSlide, prevSlide])
 
   // Arrow icons
   const PrevIcon = arrows.icons?.prev || <ChevronLeft />

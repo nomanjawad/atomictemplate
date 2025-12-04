@@ -5,7 +5,6 @@
  * All rights reserved
  */
 
-import React from "react"
 import { ImageSource } from "@types"
 
 export interface BaseImageProps {

@@ -5,7 +5,7 @@
  * All rights reserved
  */
 
-import { Section, Container, Content, BaseImage } from "@atoms"
+import { Section, Container, Content } from "@atoms"
 import { examplePageData } from "@data"
 import { InternalLink } from "@atoms"
 

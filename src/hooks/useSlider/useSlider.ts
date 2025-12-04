@@ -8,7 +8,7 @@
 
 "use client"
 
-import { useState, useRef, useEffect, useMemo } from "react"
+import { useState, useRef, useEffect, useMemo, useCallback } from "react"
 
 import {
   UseSliderOption,
@@ -70,29 +70,29 @@ export default function useSlider({
     }
   }
 
-  function pauseAutoChangeTemporarily() {
+  const pauseAutoChangeTemporarily = useCallback(() => {
     if (!autoChangeInitiallyEnabled) return
     setIsAutoChange(false)
     clearResumeTimeout()
     resumeTimeoutRef.current = setTimeout(() => {
       setIsAutoChange(true)
     }, defaultHoldSecond * 1000)
-  }
+  }, [autoChangeInitiallyEnabled, defaultHoldSecond])
 
-  function updateActiveIndex(index: number) {
+  const updateActiveIndex = useCallback((index: number) => {
     setActiveIndex(index)
     pauseAutoChangeTemporarily()
-  }
+  }, [pauseAutoChangeTemporarily])
 
-  function forwardIndex() {
+  const forwardIndex = useCallback(() => {
     setSlideDirection("right")
     updateActiveIndex(nextIndex)
-  }
+  }, [nextIndex, updateActiveIndex])
 
-  function backwardIndex() {
+  const backwardIndex = useCallback(() => {
     setSlideDirection("left")
     updateActiveIndex(previousIndex)
-  }
+  }, [previousIndex, updateActiveIndex])
 
   function scrollTo(scrollX: number) {
     containerRef.current?.scrollTo({ left: scrollX, behavior: "smooth" })
@@ -159,7 +159,7 @@ export default function useSlider({
       element.removeEventListener("touchmove", handleTouchMove)
       element.removeEventListener("touchend", handleTouchEnd)
     }
-  }, [nextIndex, previousIndex])
+  }, [nextIndex, previousIndex, backwardIndex, forwardIndex])
 
   return {
     nextIndex,

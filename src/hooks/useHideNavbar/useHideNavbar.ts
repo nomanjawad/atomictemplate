@@ -85,12 +85,13 @@ export default function useHideNavbar({
     )
 
     // Start observing
-    observerRef.current.observe(ref.current)
+    const element = ref.current
+    observerRef.current.observe(element)
 
     // Cleanup
     return () => {
-      if (observerRef.current && ref.current) {
-        observerRef.current.unobserve(ref.current)
+      if (observerRef.current && element) {
+        observerRef.current.unobserve(element)
         observerRef.current.disconnect()
       }
 
