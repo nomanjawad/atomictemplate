@@ -14,4 +14,4 @@ export * from "./FaqSection"
 export * from "./Navigation"
 export * from "./Pagination"
 export * from "./Gallery"
-export * from "./Slider"
+// Slider is now a standalone package: @atomictemplate/slider

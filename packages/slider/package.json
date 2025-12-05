@@ -1,0 +1,67 @@
+{
+  "name": "@atomictemplate/slider",
+  "version": "1.0.0",
+  "description": "A fully customizable React slider/carousel with GSAP animations, marquee mode, and accessibility features",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles": "./dist/slider.module.css",
+    "./styles.css": "./dist/slider.module.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "react",
+    "slider",
+    "carousel",
+    "gsap",
+    "marquee",
+    "swiper",
+    "accessibility",
+    "typescript"
+  ],
+  "author": {
+    "name": "Noman Jawad",
+    "email": "nomanzawad@gmail.com",
+    "url": "https://github.com/nomanjawad"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomanjawad/atomictemplate.git",
+    "directory": "packages/slider"
+  },
+  "homepage": "https://github.com/nomanjawad/atomictemplate/tree/main/packages/slider#readme",
+  "bugs": {
+    "url": "https://github.com/nomanjawad/atomictemplate/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -3,7 +3,8 @@ name: Release and Publish
 on:
   push:
     tags:
-      - "v*" # Triggers on version tags like v1.2.0
+      - "v*"
+      - "slider-v*"
 
 jobs:
   release:
@@ -13,7 +14,7 @@ jobs:
       id-token: write # OIDC for npm publishing
 
     steps:
-      - name: Checkout template repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -30,38 +31,63 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Determine package to publish
+        id: package
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+          if [[ $TAG == slider-v* ]]; then
+            echo "name=@atomicui/slider" >> $GITHUB_OUTPUT
+            echo "path=packages/slider" >> $GITHUB_OUTPUT
+            echo "version=${TAG#slider-v}" >> $GITHUB_OUTPUT
+            echo "type=slider" >> $GITHUB_OUTPUT
+          else
+            echo "name=create-atomictemplate" >> $GITHUB_OUTPUT
+            echo "path=cli" >> $GITHUB_OUTPUT
+            echo "version=${TAG#v}" >> $GITHUB_OUTPUT
+            echo "type=cli" >> $GITHUB_OUTPUT
+          fi
+
+      # Build template (for CLI releases)
       - name: Build template
+        if: steps.package.outputs.type == 'cli'
         run: pnpm build
 
-      - name: Get version from tag
-        id: version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
-
-      # Note: CLI now lives in ./cli subdirectory (no separate repo checkout needed)
-
-      - name: Update CLI package.json version
+      # Build slider package
+      - name: Build slider package
+        if: steps.package.outputs.type == 'slider'
         run: |
-          cd cli
-          npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
+          cd packages/slider
+          pnpm install
+          pnpm build
 
-      - name: Publish to npm
+      # Update version and publish
+      - name: Update package version
         run: |
-          cd cli
+          cd ${{ steps.package.outputs.path }}
+          npm version ${{ steps.package.outputs.version }} --no-git-tag-version
+
+      - name: Publish ${{ steps.package.outputs.name }} to npm
+        run: |
+          cd ${{ steps.package.outputs.path }}
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Create GitHub Release
+      # Create GitHub Release for CLI
+      - name: Create GitHub Release (CLI)
+        if: steps.package.outputs.type == 'cli'
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ steps.version.outputs.VERSION }}
-          name: Release v${{ steps.version.outputs.VERSION }}
+          tag_name: v${{ steps.package.outputs.version }}
+          name: Release v${{ steps.package.outputs.version }}
           body: |
-            ## 🚀 AtomicTemplate v${{ steps.version.outputs.VERSION }}
+            ## 🚀 AtomicTemplate v${{ steps.package.outputs.version }}
 
             ### Installation
             ```bash
-            npx create-atomictemplate@${{ steps.version.outputs.VERSION }} my-project
+            npx create-atomictemplate@${{ steps.package.outputs.version }} my-project
             ```
 
             ### Quick Start
@@ -78,6 +104,48 @@ jobs:
 
             ### What's New
             See [CHANGELOG.md](https://github.com/nomanjawad/atomictemplate/blob/main/CHANGELOG.md) for details.
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Create GitHub Release for Slider
+      - name: Create GitHub Release (Slider)
+        if: steps.package.outputs.type == 'slider'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: slider-v${{ steps.package.outputs.version }}
+          name: "@atomicui/slider v${{ steps.package.outputs.version }}"
+          body: |
+            ## 🎠 @atomicui/slider v${{ steps.package.outputs.version }}
+
+            ### Installation
+            ```bash
+            npm install @atomicui/slider
+            # or
+            pnpm add @atomicui/slider
+            ```
+
+            ### Usage
+            ```tsx
+            import { Slider } from '@atomicui/slider'
+            import '@atomicui/slider/styles.css'
+
+            <Slider options={{ slidesToShow: 3, autoplay: { enabled: true } }}>
+              {items.map(item => <div key={item.id}>{item.content}</div>)}
+            </Slider>
+            ```
+
+            ### Features
+            - ✅ GSAP-powered animations
+            - ✅ Touch/swipe support
+            - ✅ Autoplay with pause on hover
+            - ✅ Marquee mode
+            - ✅ RTL support
+            - ✅ Fully accessible
+
+            ### Documentation
+            - 📚 [Slider Documentation](https://github.com/nomanjawad/atomictemplate/tree/main/packages/slider#readme)
           draft: false
           prerelease: false
         env:

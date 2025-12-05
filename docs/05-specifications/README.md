@@ -12,14 +12,6 @@ Product requirements and feature specifications.
   - Technical requirements
   - Success criteria
 
-### Component Specifications
-
-- **[carousel-component-prd.md](carousel-component-prd.md)** - Carousel component specification
-  - Component requirements
-  - Features and functionality
-  - API specification
-  - Use cases
-
 ### Feature Specifications
 
 - **[ip-language-detection.md](ip-language-detection.md)** - IP-based language detection

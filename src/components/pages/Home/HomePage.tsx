@@ -8,9 +8,68 @@
 
 "use client"
 
-import { PageHeader, FaqSection, Slider } from "@organisms"
+import Image from "next/image"
+import { PageHeader, FaqSection } from "@organisms"
 import { Container, Section } from "@atoms"
-import { homePageData, faqData, sliderData } from "@data"
+// Import Slider from local packages folder for testing
+import { Slider, type ImageRenderProps } from "../../../../packages/slider/src"
+import { homePageData, faqData } from "@data"
+
+// Demo slide items
+const demoSlides = [
+  {
+    id: 1,
+    media: {
+      type: "image" as const,
+      src: "https://picsum.photos/800/400?random=1",
+      alt: "Slide 1",
+      width: 800,
+      height: 400,
+    },
+  },
+  {
+    id: 2,
+    media: {
+      type: "image" as const,
+      src: "https://picsum.photos/800/400?random=2",
+      alt: "Slide 2",
+      width: 800,
+      height: 400,
+    },
+  },
+  {
+    id: 3,
+    media: {
+      type: "image" as const,
+      src: "https://picsum.photos/800/400?random=3",
+      alt: "Slide 3",
+      width: 800,
+      height: 400,
+    },
+  },
+  {
+    id: 4,
+    media: {
+      type: "image" as const,
+      src: "https://picsum.photos/800/400?random=4",
+      alt: "Slide 4",
+      width: 800,
+      height: 400,
+    },
+  },
+]
+
+// Custom image renderer using Next.js Image
+const renderNextImage = (props: ImageRenderProps) => (
+  <Image
+    src={props.src}
+    alt={props.alt}
+    width={typeof props.width === "number" ? props.width : 800}
+    height={typeof props.height === "number" ? props.height : 400}
+    className={props.className}
+    style={{ objectFit: "cover", width: "100%", height: "auto" }}
+  />
+)
 
 export default function HomePage() {
   return (
@@ -27,34 +86,45 @@ export default function HomePage() {
         <Container>
           <div className="max-w-7xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12">
-              Features Slider Demo
+              Slider Demo - Testing renderImage
             </h2>
-            <Slider
-              items={sliderData}
-              options={{
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                gap: 24,
-                stretch: true,
-                centerMode: false,
-                pagination: "both",
-                arrows: {
-                  position: "inside",
-                  className: "",
-                },
-                autoplay: {
-                  enabled: true,
-                  delay: 3000,
-                  pauseOnHover: true,
-                },
-                loop: true,
-                speed: 500,
-                direction: "ltr",
-                reverse: false,
-                draggable: true,
-              }}
-              className="px-8"
-            />
+
+            {/* Slider with Next.js Image */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-4">
+                With Next.js Image (renderImage prop)
+              </h3>
+              <Slider
+                items={demoSlides}
+                renderImage={renderNextImage}
+                options={{
+                  slidesToShow: 2,
+                  gap: 24,
+                  autoplay: { enabled: true, delay: 4000 },
+                  loop: true,
+                  arrows: { enabled: true },
+                  dots: { enabled: true },
+                  a11y: { enabled: true },
+                }}
+              />
+            </div>
+
+            {/* Slider without renderImage (native img) */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">
+                Without renderImage (native img)
+              </h3>
+              <Slider
+                items={demoSlides}
+                options={{
+                  slidesToShow: 3,
+                  gap: 16,
+                  loop: true,
+                  arrows: { enabled: true },
+                  dots: { enabled: true },
+                }}
+              />
+            </div>
           </div>
         </Container>
       </Section>

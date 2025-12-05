@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "placehold.co",
       },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",

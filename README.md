@@ -3,12 +3,54 @@
 > Production-ready Next.js template powered by atomic design methodology and data-driven architecture.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.0.7-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.17-38bdf8)](https://tailwindcss.com/)
-[![React](https://img.shields.io/badge/React-19.2.0-61dafb)](https://react.dev/)
+[![React](https://img.shields.io/badge/React-19.2.1-61dafb)](https://react.dev/)
 
-AtomicTemplate is an enterprise-grade Next.js 15 starter built on atomic design principles, enabling teams to build consistent, scalable web applications with speed and confidence.
+AtomicTemplate is an enterprise-grade Next.js 16 starter built on atomic design principles, enabling teams to build consistent, scalable web applications with speed and confidence.
+
+---
+
+## 📦 Core Dependencies
+
+This template is built with these key technologies that you should be familiar with:
+
+| Package                                                                | Version | Purpose                                                                         |
+| ---------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------- |
+| **[@atomictemplate/slider](https://www.npmjs.com/package/@atomictemplate/slider)** | 1.0.0   | Feature-rich carousel/slider with lazy loading, accessibility, and marquee mode |
+| **[Tailwind CSS](https://tailwindcss.com/)**                           | 4.1.17  | Utility-first CSS framework for rapid UI development                            |
+| **[GSAP](https://gsap.com/)**                                          | 3.12.5  | Professional-grade animation library with ScrollTrigger                         |
+
+### @atomictemplate/slider
+
+Our custom slider package provides:
+
+- 🖼️ Lazy loading with IntersectionObserver
+- ⌨️ Full keyboard navigation (Arrow keys, Home, End)
+- ♿ ARIA accessibility labels
+- 🎬 Video/GIF/Lottie support
+- 📱 Responsive breakpoints
+- 🔄 Marquee/infinite scroll mode
+- 🎨 Render props for custom styling (`renderSlide`, `renderImage`, `renderArrow`, `renderDot`)
+
+### Tailwind CSS
+
+Used for:
+
+- Layout utilities (`flex`, `grid`, `gap`)
+- Spacing (`p-4`, `m-2`, `py-20`)
+- Responsive design (`md:`, `lg:`, `xl:`)
+- Design tokens (colors, shadows, typography)
+
+### GSAP
+
+Used for:
+
+- Smooth scroll animations
+- Page transitions
+- Slider/carousel animations
+- ScrollTrigger effects
 
 ---
 

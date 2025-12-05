@@ -1,0 +1,438 @@
+/*
+ * slider.module.css
+ * @atomicui/slider
+ * Pure CSS - No Tailwind dependencies
+ * Created by Noman Jawad
+ * Copyright (c) 2025 noman_jawad
+ */
+
+/* ============================================
+   CSS Custom Properties (Theming)
+   ============================================ */
+.slider {
+  --slider-arrow-size: 40px;
+  --slider-arrow-bg: rgba(0, 0, 0, 0.5);
+  --slider-arrow-bg-hover: rgba(0, 0, 0, 0.7);
+  --slider-arrow-color: #ffffff;
+  --slider-arrow-disabled-opacity: 0.3;
+  --slider-dot-size: 10px;
+  --slider-dot-active-width: 24px;
+  --slider-dot-color: #d1d5db;
+  --slider-dot-active-color: #3b82f6;
+  --slider-dot-gap: 8px;
+  --slider-transition-speed: 300ms;
+  --slider-transition-easing: ease-out;
+  --slider-focus-ring: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* ============================================
+   Main Container
+   ============================================ */
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+}
+
+.slider:focus-visible {
+  box-shadow: var(--slider-focus-ring);
+}
+
+/* ============================================
+   Viewport
+   ============================================ */
+.sliderViewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ============================================
+   Track
+   ============================================ */
+.sliderTrack {
+  display: flex;
+  will-change: transform;
+  transition: transform var(--slider-transition-speed)
+    var(--slider-transition-easing);
+}
+
+.sliderTrack.stretch {
+  align-items: stretch;
+}
+
+.sliderTrack.stretch .slide {
+  display: flex;
+  flex-direction: column;
+}
+
+.sliderTrack.stretch .slide > * {
+  flex: 1;
+}
+
+.sliderTrack.centerMode {
+  justify-content: center;
+}
+
+.sliderTrack.marquee {
+  transition: none;
+  white-space: nowrap;
+}
+
+.sliderTrack.marquee .slide {
+  display: inline-flex;
+}
+
+.sliderTrack.fade .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity var(--slider-transition-speed)
+    var(--slider-transition-easing);
+}
+
+.sliderTrack.fade .slide.active {
+  position: relative;
+  opacity: 1;
+}
+
+/* ============================================
+   Slide
+   ============================================ */
+.slide {
+  flex-shrink: 0;
+  user-select: none;
+  outline: none;
+}
+
+.slide:focus-visible {
+  box-shadow: var(--slider-focus-ring);
+}
+
+/* Lazy loading states */
+.slide.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+}
+
+.slide.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* ============================================
+   Arrows - Base
+   ============================================ */
+.arrow {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--slider-arrow-size);
+  height: var(--slider-arrow-size);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--slider-arrow-bg);
+  color: var(--slider-arrow-color);
+  cursor: pointer;
+  transition: all var(--slider-transition-speed) var(--slider-transition-easing);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.arrow:hover:not(:disabled) {
+  background: var(--slider-arrow-bg-hover);
+  transform: scale(1.1);
+}
+
+.arrow:focus-visible {
+  box-shadow: var(--slider-focus-ring);
+  outline: none;
+}
+
+.arrow:disabled {
+  opacity: var(--slider-arrow-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================
+   Arrows - Inside Position
+   ============================================ */
+.arrowInside {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrowInside.arrowPrev {
+  left: 16px;
+}
+
+.arrowInside.arrowNext {
+  right: 16px;
+}
+
+.arrowInside:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ============================================
+   Arrows - Outside Position
+   ============================================ */
+.arrowOutside {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrowOutside.arrowPrev {
+  left: -60px;
+}
+
+.arrowOutside.arrowNext {
+  right: -60px;
+}
+
+.arrowOutside:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ============================================
+   Arrows - Bottom Position
+   ============================================ */
+.arrowBottom {
+  bottom: -60px;
+}
+
+.arrowBottom.arrowPrev {
+  left: calc(50% - 50px);
+}
+
+.arrowBottom.arrowNext {
+  right: calc(50% - 50px);
+}
+
+/* ============================================
+   Arrows - Show on Hover
+   ============================================ */
+.arrowShowOnHover {
+  opacity: 0;
+  transition:
+    opacity var(--slider-transition-speed) var(--slider-transition-easing),
+    transform var(--slider-transition-speed) var(--slider-transition-easing);
+}
+
+.slider:hover .arrowShowOnHover,
+.slider:focus-within .arrowShowOnHover {
+  opacity: 1;
+}
+
+/* ============================================
+   Dots / Pagination
+   ============================================ */
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--slider-dot-gap);
+  margin-top: 24px;
+}
+
+.dot {
+  width: var(--slider-dot-size);
+  height: var(--slider-dot-size);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--slider-dot-color);
+  cursor: pointer;
+  transition: all var(--slider-transition-speed) var(--slider-transition-easing);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dot:hover {
+  background: #9ca3af;
+  transform: scale(1.2);
+}
+
+.dot:focus-visible {
+  box-shadow: var(--slider-focus-ring);
+  outline: none;
+}
+
+.dotActive {
+  width: var(--slider-dot-active-width);
+  border-radius: 5px;
+  background: var(--slider-dot-active-color);
+}
+
+.dotActive:hover {
+  background: #2563eb;
+}
+
+/* ============================================
+   Live Region (Screen Readers)
+   ============================================ */
+.liveRegion {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   Media Elements
+   ============================================ */
+.slideMedia {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideLottie {
+  width: 100%;
+  height: 100%;
+}
+
+/* Lazy load placeholder */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+@media (max-width: 768px) {
+  .slider {
+    --slider-arrow-size: 32px;
+  }
+
+  .arrowOutside {
+    display: none;
+  }
+
+  .arrowInside svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .arrowInside.arrowPrev {
+    left: 8px;
+  }
+
+  .arrowInside.arrowNext {
+    right: 8px;
+  }
+
+  .dots {
+    margin-top: 16px;
+  }
+
+  .dot {
+    --slider-dot-size: 8px;
+  }
+
+  .dotActive {
+    --slider-dot-active-width: 20px;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .arrow,
+  .dots {
+    display: none;
+  }
+
+  .sliderTrack {
+    flex-wrap: wrap;
+  }
+
+  .slide {
+    page-break-inside: avoid;
+  }
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .slider {
+    --slider-transition-speed: 0ms;
+  }
+
+  .sliderTrack {
+    transition: none;
+  }
+
+  .sliderTrack.marquee {
+    animation: none;
+  }
+
+  .placeholder {
+    animation: none;
+  }
+}
+
+/* ============================================
+   High Contrast Mode
+   ============================================ */
+@media (prefers-contrast: high) {
+  .arrow {
+    background: #000000;
+    border: 2px solid #ffffff;
+  }
+
+  .arrow:focus-visible {
+    outline: 3px solid #ffffff;
+  }
+
+  .dot {
+    border: 2px solid #000000;
+  }
+
+  .dotActive {
+    background: #000000;
+  }
+}

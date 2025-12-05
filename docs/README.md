@@ -43,8 +43,9 @@ Start here if you're new to the project!
 Learn how to use and create components.
 
 - **[component-documentation-guide.md](03-components/component-documentation-guide.md)** - All components with JSDoc
-- **[slider.md](03-components/slider.md)** - Full-featured Slider/Carousel with marquee mode ⭐
 - **[example-page-guide.md](03-components/example-page-guide.md)** - Complete page creation example
+
+> 📦 **Slider Component**: See [@atomictemplate/slider](../packages/slider/README.md) package documentation
 
 ---
 
@@ -69,7 +70,6 @@ Technical guides for development workflow.
 Product requirements and feature specifications.
 
 - **[prd.md](05-specifications/prd.md)** - Product requirements document
-- **[carousel-component-prd.md](05-specifications/carousel-component-prd.md)** - Carousel component spec
 - **[ip-language-detection.md](05-specifications/ip-language-detection.md)** - IP-based language detection spec
 
 ---

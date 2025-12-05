@@ -124,8 +124,9 @@ These don't need updates as they cover different topics:
 - `naming.md` - Naming conventions (technical reference)
 - `rules.md` - ESLint rules (technical reference)
 - `prd.md` - Product requirements (project spec)
-- `carousel-component-prd.md` - Component spec (technical spec)
 - `ip-language-detection.md` - Feature spec (technical spec)
+
+> 📦 **Note**: Slider/Carousel documentation is now part of the `@atomictemplate/slider` package. See [packages/slider/README.md](../packages/slider/README.md)
 
 ---
 
@@ -159,8 +160,9 @@ docs/
 │
 └── Specifications
     ├── prd.md                          ✅ Current (product requirements)
-    ├── carousel-component-prd.md       ✅ Current (component spec)
     └── ip-language-detection.md        ✅ Current (feature spec)
+
+> 📦 Slider/Carousel docs moved to packages/slider/README.md
 ```
 
 ---
