@@ -210,7 +210,7 @@ declare const BREAKPOINTS: {
 type BreakpointKey = keyof typeof BREAKPOINTS;
 
 /**
- * @atomicui/slider
+ * @atomictemplate/slider
  * Enhanced Slider Component with full accessibility, lazy loading, and responsive features
  * Created by Noman Jawad
  * Copyright (c) 2025 noman_jawad

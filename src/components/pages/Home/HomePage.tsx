@@ -11,8 +11,8 @@
 import Image from "next/image"
 import { PageHeader, FaqSection } from "@organisms"
 import { Container, Section } from "@atoms"
-// Import Slider from local packages folder for testing
-import { Slider, type ImageRenderProps } from "../../../../packages/slider/src"
+// Import Slider from published npm package
+import { Slider, type ImageRenderProps } from "@atomictemplate/slider"
 import { homePageData, faqData } from "@data"
 
 // Demo slide items

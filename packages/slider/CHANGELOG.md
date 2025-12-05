@@ -5,6 +5,14 @@ All notable changes to `@atomictemplate/slider` will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-12-05
+
+### Fixed
+
+- Fixed package exports configuration (ESM/CJS paths were incorrect)
+- `import` now correctly points to `./dist/index.js`
+- `require` now correctly points to `./dist/index.cjs`
+
 ## [1.0.0] - 2025-12-05
 
 ### Added
