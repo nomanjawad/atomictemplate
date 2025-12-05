@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ============================================
-# @atomicui/slider Release Script
+# @atomictemplate/slider Release Script
 # ============================================
 # Usage: ./scripts/release-slider.sh [major|minor|patch|x.x.x]
 # Example: ./scripts/release-slider.sh patch
@@ -19,7 +19,7 @@ NC='\033[0m' # No Color
 # Package directory
 PACKAGE_DIR="packages/slider"
 
-echo -e "${BLUE}🎠 @atomicui/slider Release Script${NC}\n"
+echo -e "${BLUE}🎠 @atomictemplate/slider Release Script${NC}\n"
 
 # Check if version argument is provided
 if [ -z "$1" ]; then
@@ -94,17 +94,17 @@ echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━
 echo -e "${GREEN}✨ Slider Release Triggered! ✨${NC}"
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
-echo -e "Package: ${BLUE}@atomicui/slider${NC}"
+echo -e "Package: ${BLUE}@atomictemplate/slider${NC}"
 echo -e "Version: ${YELLOW}${NEW_VERSION}${NC}"
 echo -e "Tag: ${YELLOW}slider-v${NEW_VERSION}${NC}"
 echo ""
 echo -e "GitHub Actions is now:"
 echo -e "  1. ✓ Building the slider package"
-echo -e "  2. ✓ Publishing @atomicui/slider@${NEW_VERSION} to npm"
+echo -e "  2. ✓ Publishing @atomictemplate/slider@${NEW_VERSION} to npm"
 echo -e "  3. ✓ Creating GitHub release"
 echo ""
 echo -e "Monitor progress:"
 echo -e "${BLUE}https://github.com/nomanjawad/atomictemplate/actions${NC}"
 echo ""
 echo -e "Once complete, install with:"
-echo -e "${GREEN}npm install @atomicui/slider@${NEW_VERSION}${NC}"
+echo -e "${GREEN}npm install @atomictemplate/slider@${NEW_VERSION}${NC}"

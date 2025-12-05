@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
           registry-url: "https://registry.npmjs.org"
 
       - name: Setup pnpm
@@ -38,7 +38,7 @@ jobs:
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
           if [[ $TAG == slider-v* ]]; then
-            echo "name=@atomicui/slider" >> $GITHUB_OUTPUT
+            echo "name=@atomictemplate/slider" >> $GITHUB_OUTPUT
             echo "path=packages/slider" >> $GITHUB_OUTPUT
             echo "version=${TAG#slider-v}" >> $GITHUB_OUTPUT
             echo "type=slider" >> $GITHUB_OUTPUT
@@ -71,7 +71,7 @@ jobs:
       - name: Publish ${{ steps.package.outputs.name }} to npm
         run: |
           cd ${{ steps.package.outputs.path }}
-          npm publish --access public
+          npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -115,34 +115,42 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: slider-v${{ steps.package.outputs.version }}
-          name: "@atomicui/slider v${{ steps.package.outputs.version }}"
+          name: "@atomictemplate/slider v${{ steps.package.outputs.version }}"
           body: |
-            ## 🎠 @atomicui/slider v${{ steps.package.outputs.version }}
+            ## 🎠 @atomictemplate/slider v${{ steps.package.outputs.version }}
 
             ### Installation
             ```bash
-            npm install @atomicui/slider
+            npm install @atomictemplate/slider gsap
             # or
-            pnpm add @atomicui/slider
+            pnpm add @atomictemplate/slider gsap
             ```
 
             ### Usage
             ```tsx
-            import { Slider } from '@atomicui/slider'
-            import '@atomicui/slider/styles.css'
+            import { Slider } from '@atomictemplate/slider'
 
-            <Slider options={{ slidesToShow: 3, autoplay: { enabled: true } }}>
-              {items.map(item => <div key={item.id}>{item.content}</div>)}
-            </Slider>
+            <Slider
+              items={slides}
+              options={{
+                slidesToShow: 3,
+                autoplay: { enabled: true },
+                loop: true,
+              }}
+            />
             ```
 
             ### Features
             - ✅ GSAP-powered animations
+            - ✅ Lazy loading with IntersectionObserver
+            - ✅ Full keyboard navigation
+            - ✅ ARIA accessibility
             - ✅ Touch/swipe support
             - ✅ Autoplay with pause on hover
             - ✅ Marquee mode
-            - ✅ RTL support
-            - ✅ Fully accessible
+            - ✅ Responsive breakpoints
+            - ✅ Video/GIF/Lottie support
+            - ✅ Render props for customization
 
             ### Documentation
             - 📚 [Slider Documentation](https://github.com/nomanjawad/atomictemplate/tree/main/packages/slider#readme)
