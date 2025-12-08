@@ -28,6 +28,9 @@ jobs:
         with:
           version: 8
 
+      - name: Wait for npm registry propagation
+        run: sleep 30
+
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
