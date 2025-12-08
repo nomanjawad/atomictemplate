@@ -5,6 +5,33 @@ All notable changes to AtomicTemplate will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2025-12-08
+
+### Added
+
+- **@atomictemplate/validations** - New validation package as core dependency
+  - Pre-built Zod schemas for common data structures
+  - Page schemas (HomePage, BlogPost, ContactPage, Gallery, etc.)
+  - Custom validators (URL, email, image, phone)
+  - TypeScript types auto-inferred from schemas
+  - Works with Zod v3 and v4
+- **Example validation files** - Learn how to create custom validators
+  - `src/validations/example/product.schema.ts` - Comprehensive schema example
+  - `src/data/example/product.data.ts` - Data file with validation
+- **Updated README** - Added documentation for all core dependencies
+  - @atomictemplate/validations usage guide
+  - Zod usage examples
+  - Zustand usage examples
+
+### Changed
+
+- CLI now removes `packages/` folder during project creation
+- CLI now removes `release-slider.sh` during project creation
+- Upgraded `@atomictemplate/slider` to v1.0.2
+- Upgraded `zod` to v4.1.11
+
+---
+
 ## [1.2.0] - 2025-12-05
 
 ### Added
@@ -90,3 +117,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [GitHub Repository](https://github.com/nomanjawad/atomictemplate)
 - [npm Package (CLI)](https://www.npmjs.com/package/create-atomictemplate)
 - [@atomictemplate/slider](https://www.npmjs.com/package/@atomictemplate/slider)
+- [@atomictemplate/validations](https://www.npmjs.com/package/@atomictemplate/validations)
