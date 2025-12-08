@@ -28,8 +28,13 @@ jobs:
         with:
           version: 8
 
+      - name: Clear npm cache
+        run: |
+          npm cache clean --force
+          pnpm store prune
+
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Determine package to publish
         id: package
