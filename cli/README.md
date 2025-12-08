@@ -28,15 +28,32 @@ The CLI will:
 
 ## What You Get
 
-- ⚛️ **Next.js 15.5.4** with App Router
+- ⚛️ **Next.js 16.0.7** with App Router
 - 🎨 **Atomic Design** component architecture
 - 📊 **Data-Driven** development pattern
-- 🎭 **TypeScript** for type safety
-- 💨 **Tailwind CSS 4** for styling
-- ✨ **GSAP** for animations
-- ✅ **Zod** for validation
-- 🔄 **Zustand** for state management
+- 🎭 **TypeScript 5.9.3** for type safety
+- 💨 **Tailwind CSS 4.1.17** for styling
+- ✨ **GSAP 3.13.0** for animations
+- ✅ **Zod 4.1.11** for validation
+- 🔄 **Zustand 5.0.8** for state management
 - 📝 **30+ documentation guides**
+
+## Template Dependencies
+
+The scaffolded project includes these core packages:
+
+| Package                                                                                  | Version  | Description                            |
+| ---------------------------------------------------------------------------------------- | -------- | -------------------------------------- |
+| [@atomictemplate/slider](https://www.npmjs.com/package/@atomictemplate/slider)           | ^1.0.2   | Feature-rich carousel/slider component |
+| [@atomictemplate/validations](https://www.npmjs.com/package/@atomictemplate/validations) | ^1.0.3   | Zod validation schemas                 |
+| [next](https://nextjs.org/)                                                              | ^16.0.7  | React framework with App Router        |
+| [react](https://react.dev/)                                                              | ^19.2.1  | UI library                             |
+| [tailwindcss](https://tailwindcss.com/)                                                  | ^4.1.17  | Utility-first CSS                      |
+| [gsap](https://gsap.com/)                                                                | ^3.13.0  | Animation library                      |
+| [zod](https://zod.dev/)                                                                  | ^4.1.11  | Schema validation                      |
+| [zustand](https://zustand.docs.pmnd.rs/)                                                 | ^5.0.8   | State management                       |
+| [lucide-react](https://lucide.dev/)                                                      | ^0.555.0 | Icon library                           |
+| [clsx](https://github.com/lukeed/clsx)                                                   | ^2.1.1   | Class name utility                     |
 
 ## Requirements
 
