@@ -56,6 +56,16 @@ jobs:
         if: steps.release.outputs.type == 'template'
         run: pnpm build
 
+      # Publish CLI to npm (for v* tags)
+      - name: Publish CLI to npm
+        if: steps.release.outputs.type == 'template'
+        run: |
+          cd cli
+          npm version ${{ steps.release.outputs.version }} --no-git-tag-version --allow-same-version
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       # Build slider package (for slider-v* tags)
       - name: Build and publish slider
         if: steps.release.outputs.type == 'slider'
