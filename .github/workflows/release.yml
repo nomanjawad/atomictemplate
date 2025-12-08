@@ -28,7 +28,22 @@ jobs:
         with:
           version: 8
 
-      - name: Build local packages first
+      - name: Determine release type
+        id: release
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+          if [[ $TAG == slider-v* ]]; then
+            echo "type=slider" >> $GITHUB_OUTPUT
+            echo "version=${TAG#slider-v}" >> $GITHUB_OUTPUT
+          else
+            echo "type=template" >> $GITHUB_OUTPUT
+            echo "version=${TAG#v}" >> $GITHUB_OUTPUT
+          fi
+
+      # Build packages first (needed for workspace resolution)
+      - name: Build local packages
         run: |
           cd packages/validations && pnpm install && pnpm build
           cd ../slider && pnpm install && pnpm build
@@ -36,66 +51,32 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Determine package to publish
-        id: package
-        run: |
-          TAG=${GITHUB_REF#refs/tags/}
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
-
-          if [[ $TAG == slider-v* ]]; then
-            echo "name=@atomictemplate/slider" >> $GITHUB_OUTPUT
-            echo "path=packages/slider" >> $GITHUB_OUTPUT
-            echo "version=${TAG#slider-v}" >> $GITHUB_OUTPUT
-            echo "type=slider" >> $GITHUB_OUTPUT
-          else
-            echo "name=create-atomictemplate" >> $GITHUB_OUTPUT
-            echo "path=cli" >> $GITHUB_OUTPUT
-            echo "version=${TAG#v}" >> $GITHUB_OUTPUT
-            echo "type=cli" >> $GITHUB_OUTPUT
-          fi
-
-      # Build template (for CLI releases)
+      # Build and verify template (for v* tags)
       - name: Build template
-        if: steps.package.outputs.type == 'cli'
+        if: steps.release.outputs.type == 'template'
         run: pnpm build
 
-      # Build slider package
-      - name: Build slider package
-        if: steps.package.outputs.type == 'slider'
+      # Build slider package (for slider-v* tags)
+      - name: Build and publish slider
+        if: steps.release.outputs.type == 'slider'
         run: |
           cd packages/slider
-          pnpm install
-          pnpm build
-
-      # Update version and publish
-      - name: Update package version
-        run: |
-          cd ${{ steps.package.outputs.path }}
-          npm version ${{ steps.package.outputs.version }} --no-git-tag-version
-
-      - name: Publish ${{ steps.package.outputs.name }} to npm
-        run: |
-          cd ${{ steps.package.outputs.path }}
+          npm version ${{ steps.release.outputs.version }} --no-git-tag-version
           npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # Create GitHub Release for CLI
-      - name: Create GitHub Release (CLI)
-        if: steps.package.outputs.type == 'cli'
+      # Create GitHub Release for Template
+      - name: Create GitHub Release (Template)
+        if: steps.release.outputs.type == 'template'
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ steps.package.outputs.version }}
-          name: Release v${{ steps.package.outputs.version }}
+          tag_name: v${{ steps.release.outputs.version }}
+          name: Release v${{ steps.release.outputs.version }}
           body: |
-            ## 🚀 AtomicTemplate v${{ steps.package.outputs.version }}
+            ## 🚀 AtomicTemplate v${{ steps.release.outputs.version }}
 
             ### Installation
-            ```bash
-            npx create-atomictemplate@${{ steps.package.outputs.version }} my-project
-            ```
-
-            ### Quick Start
             ```bash
             npx create-atomictemplate my-project
             cd my-project
@@ -116,13 +97,13 @@ jobs:
 
       # Create GitHub Release for Slider
       - name: Create GitHub Release (Slider)
-        if: steps.package.outputs.type == 'slider'
+        if: steps.release.outputs.type == 'slider'
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: slider-v${{ steps.package.outputs.version }}
-          name: "@atomictemplate/slider v${{ steps.package.outputs.version }}"
+          tag_name: slider-v${{ steps.release.outputs.version }}
+          name: "@atomictemplate/slider v${{ steps.release.outputs.version }}"
           body: |
-            ## 🎠 @atomictemplate/slider v${{ steps.package.outputs.version }}
+            ## 🎠 @atomictemplate/slider v${{ steps.release.outputs.version }}
 
             ### Installation
             ```bash
@@ -131,31 +112,14 @@ jobs:
             pnpm add @atomictemplate/slider gsap
             ```
 
-            ### Usage
-            ```tsx
-            import { Slider } from '@atomictemplate/slider'
-
-            <Slider
-              items={slides}
-              options={{
-                slidesToShow: 3,
-                autoplay: { enabled: true },
-                loop: true,
-              }}
-            />
-            ```
-
             ### Features
             - ✅ GSAP-powered animations
             - ✅ Lazy loading with IntersectionObserver
             - ✅ Full keyboard navigation
             - ✅ ARIA accessibility
             - ✅ Touch/swipe support
-            - ✅ Autoplay with pause on hover
             - ✅ Marquee mode
             - ✅ Responsive breakpoints
-            - ✅ Video/GIF/Lottie support
-            - ✅ Render props for customization
 
             ### Documentation
             - 📚 [Slider Documentation](https://github.com/nomanjawad/atomictemplate/tree/main/packages/slider#readme)
