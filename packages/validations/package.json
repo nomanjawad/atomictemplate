@@ -1,6 +1,6 @@
 {
   "name": "@atomictemplate/validations",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Shared Zod validation schemas for AtomicTemplate frontend and backend",
   "type": "module",
   "main": "./dist/index.cjs",

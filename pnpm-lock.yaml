@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@atomictemplate/slider':
-        specifier: ^1.0.1
-        version: 1.0.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
-      '@atomictemplate/validations':
         specifier: ^1.0.2
-        version: 1.0.2(zod@4.1.11)
+        version: 1.0.2(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      '@atomictemplate/validations':
+        specifier: ^1.0.3
+        version: 1.0.3(zod@4.1.11)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -155,14 +155,14 @@ packages:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
 
-  '@atomictemplate/slider@1.0.1':
-    resolution: {integrity: sha512-RQyPUGYq+2vG9EMTVS9wVaEnr4xiq+aux8fIuc3DDbimOcdpDM+6/xS692jseejWSfQGs19gdDlM5+8rHaNIpg==}
+  '@atomictemplate/slider@1.0.2':
+    resolution: {integrity: sha512-hSIGaZmWlFlscgmIOM+NwaD8JwQ4g4ThW2GdwPgdNp+Jwtp1S8zmngqtRQy81676WT3XfiS1Qt4kLX66wwJuFg==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
-  '@atomictemplate/validations@1.0.2':
-    resolution: {integrity: sha512-vsEvEk5f3JfxEAK8nnXFpsO7duXGoOXBhf6gneBuSV8Vm09tCm3XECpgjaLP1Eq55mnJ2ojDveSfwa8hr+Hijg==}
+  '@atomictemplate/validations@1.0.3':
+    resolution: {integrity: sha512-O7KE0YLh7stZnPhvBBMQbJx2o9hBo9bBLrEdVGSCy1LMybKIzzj+1rBjbE2XGZa4KXRPVLTwXWJhLY9zeEk5aA==}
     peerDependencies:
       zod: '>=3.20.0 || >=4.0.0'
 
@@ -3824,13 +3824,13 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@atomictemplate/slider@1.0.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1)':
+  '@atomictemplate/slider@1.0.2(react-dom@19.2.1(react@19.2.1))(react@19.2.1)':
     dependencies:
       gsap: 3.13.0
       react: 19.2.1
       react-dom: 19.2.1(react@19.2.1)
 
-  '@atomictemplate/validations@1.0.2(zod@4.1.11)':
+  '@atomictemplate/validations@1.0.3(zod@4.1.11)':
     dependencies:
       zod: 4.1.11
 
