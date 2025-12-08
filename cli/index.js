@@ -66,8 +66,10 @@ async function main() {
     spinner.start('Cleaning up template files...');
     const filesToRemove = [
       path.join(targetDir, 'scripts', 'release.sh'),
+      path.join(targetDir, 'scripts', 'release-slider.sh'),
       path.join(targetDir, '.github', 'workflows', 'release.yml'),
-      path.join(targetDir, 'cli'),  // Remove entire CLI directory
+      path.join(targetDir, 'cli'),       // Remove entire CLI directory
+      path.join(targetDir, 'packages'),  // Remove packages (installed via npm)
     ];
     
     for (const file of filesToRemove) {

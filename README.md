@@ -16,11 +16,14 @@ AtomicTemplate is an enterprise-grade Next.js 16 starter built on atomic design 
 
 This template is built with these key technologies that you should be familiar with:
 
-| Package                                                                | Version | Purpose                                                                         |
-| ---------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------- |
-| **[@atomictemplate/slider](https://www.npmjs.com/package/@atomictemplate/slider)** | 1.0.0   | Feature-rich carousel/slider with lazy loading, accessibility, and marquee mode |
-| **[Tailwind CSS](https://tailwindcss.com/)**                           | 4.1.17  | Utility-first CSS framework for rapid UI development                            |
-| **[GSAP](https://gsap.com/)**                                          | 3.12.5  | Professional-grade animation library with ScrollTrigger                         |
+| Package                                                                                      | Version | Purpose                                                                         |
+| -------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------- |
+| **[@atomictemplate/slider](https://www.npmjs.com/package/@atomictemplate/slider)**           | 1.0.2   | Feature-rich carousel/slider with lazy loading, accessibility, and marquee mode |
+| **[@atomictemplate/validations](https://www.npmjs.com/package/@atomictemplate/validations)** | 1.0.2   | Zod-based validation schemas for type-safe data validation                      |
+| **[Tailwind CSS](https://tailwindcss.com/)**                                                 | 4.1.17  | Utility-first CSS framework for rapid UI development                            |
+| **[GSAP](https://gsap.com/)**                                                                | 3.13.0  | Professional-grade animation library with ScrollTrigger                         |
+| **[Zod](https://zod.dev/)**                                                                  | 4.1.11  | TypeScript-first schema validation with static type inference                   |
+| **[Zustand](https://zustand.docs.pmnd.rs/)**                                                 | 5.0.8   | Lightweight state management for React                                          |
 
 ### @atomictemplate/slider
 
@@ -33,6 +36,34 @@ Our custom slider package provides:
 - 📱 Responsive breakpoints
 - 🔄 Marquee/infinite scroll mode
 - 🎨 Render props for custom styling (`renderSlide`, `renderImage`, `renderArrow`, `renderDot`)
+
+### @atomictemplate/validations
+
+Our validation package provides:
+
+- 🔒 Pre-built Zod schemas for common data structures (forms, metadata, FAQ, etc.)
+- 📄 Page schemas for HomePage, BlogPost, ContactPage, and more
+- 🛠️ Custom validators for URLs, emails, images, and phone numbers
+- 📦 TypeScript types auto-inferred from schemas
+- 🔄 Works with Zod v3 and v4
+
+```typescript
+// Import validators and schemas
+import {
+  validator,
+  HomePageSchema,
+  FormSchema,
+} from "@atomictemplate/validations"
+
+// Use pre-built schemas
+const result = HomePageSchema.safeParse(data)
+
+// Create custom schemas
+const MySchema = validator.object({
+  name: validator.string().min(2),
+  email: validator.string().email(),
+})
+```
 
 ### Tailwind CSS
 
@@ -51,6 +82,45 @@ Used for:
 - Page transitions
 - Slider/carousel animations
 - ScrollTrigger effects
+
+### Zod
+
+Used for:
+
+- Runtime data validation
+- Form validation with type-safe errors
+- API response validation
+- Schema-first development
+
+```typescript
+import { validator } from "@validations"
+
+const UserSchema = validator.object({
+  name: validator.string().min(2, "Name too short"),
+  email: validator.string().email("Invalid email"),
+  age: validator.number().min(18, "Must be 18+"),
+})
+
+type User = validator.infer<typeof UserSchema>
+```
+
+### Zustand
+
+Used for:
+
+- Global state management
+- Language/theme preferences
+- UI state (modals, navigation)
+- Lightweight alternative to Redux
+
+```typescript
+import { useLanguageStore } from "@store"
+
+function LanguageSwitcher() {
+  const { language, setLanguage } = useLanguageStore()
+  return <button onClick={() => setLanguage("ar")}>Switch to Arabic</button>
+}
+```
 
 ---
 
