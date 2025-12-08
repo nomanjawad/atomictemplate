@@ -28,8 +28,10 @@ jobs:
         with:
           version: 8
 
-      - name: Wait for npm registry propagation
-        run: sleep 30
+      - name: Build local packages first
+        run: |
+          cd packages/validations && pnpm install && pnpm build
+          cd ../slider && pnpm install && pnpm build
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
