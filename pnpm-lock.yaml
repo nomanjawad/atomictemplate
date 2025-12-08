@@ -11,6 +11,9 @@ importers:
       '@atomictemplate/slider':
         specifier: ^1.0.1
         version: 1.0.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      '@atomictemplate/validations':
+        specifier: ^1.0.2
+        version: 1.0.2(zod@4.1.11)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -131,6 +134,18 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  packages/validations:
+    devDependencies:
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.1)
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+      zod:
+        specifier: ^4.1.11
+        version: 4.1.11
+
 packages:
 
   '@adobe/css-tools@4.4.4':
@@ -145,6 +160,11 @@ packages:
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
+
+  '@atomictemplate/validations@1.0.2':
+    resolution: {integrity: sha512-vsEvEk5f3JfxEAK8nnXFpsO7duXGoOXBhf6gneBuSV8Vm09tCm3XECpgjaLP1Eq55mnJ2ojDveSfwa8hr+Hijg==}
+    peerDependencies:
+      zod: '>=3.20.0 || >=4.0.0'
 
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
@@ -3809,6 +3829,10 @@ snapshots:
       gsap: 3.13.0
       react: 19.2.1
       react-dom: 19.2.1(react@19.2.1)
+
+  '@atomictemplate/validations@1.0.2(zod@4.1.11)':
+    dependencies:
+      zod: 4.1.11
 
   '@babel/code-frame@7.27.1':
     dependencies:

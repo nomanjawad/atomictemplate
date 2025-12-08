@@ -1,11 +1,9 @@
 /*
  * slider.schema.ts
- * Created by Noman Jawad
- * Copyright (c) 2025 noman_jawad
- * All rights reserved
+ * @atomictemplate/validations
  */
 
-import { validator } from "@libs"
+import { validator } from "../validator"
 
 // Image section schema
 const ImageSectionSchema = validator.object({
@@ -34,7 +32,7 @@ const LinkSchema = validator.object({
 })
 
 // InfoCard item schema
-const InfoCardItemSchema = validator.object({
+export const InfoCardItemSchema = validator.object({
   imageSection: ImageSectionSchema.optional(),
   textSection: TextSectionSchema.optional(),
   link: LinkSchema.optional(),
@@ -75,7 +73,7 @@ const MarqueeOptionsSchema = validator.object({
 })
 
 // Slider options schema
-const SliderOptionsSchema = validator.object({
+export const SliderOptionsSchema = validator.object({
   // Display
   slidesToShow: validator.number().positive().optional(),
   slidesToScroll: validator.number().positive().optional(),

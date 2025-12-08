@@ -1,10 +1,11 @@
 /*
  * index.ts
- * Created by Noman Jawad
- * skytech_solutions-frontend-nextJs-typescript
- * Copyright (c) 2025 noman_jawad
- * All rights reserved
+ * Re-exports from @atomictemplate/validations package
+ * Add custom project-specific schemas below the re-export
  */
 
-export * from "./common"
-export * from "./full-pages"
+// Re-export everything from the validations package
+export * from "@atomictemplate/validations"
+
+// Add any project-specific custom schemas here:
+// export * from "./custom"

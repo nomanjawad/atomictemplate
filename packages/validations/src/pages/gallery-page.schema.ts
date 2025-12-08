@@ -1,12 +1,10 @@
 /*
  * gallery-page.schema.ts
- * Created by Noman E Jawad
- * Copyright (c) 2025 skytech_solutions
- * All rights reserved
+ * @atomictemplate/validations
  */
 
-import { validator } from "@libs"
-import { BannerSchema } from "@validations"
+import { validator } from "../validator"
+import { BannerSchema } from "../common/banner.schema"
 
 export const GalleryPageSchema = validator.object({
   slug: validator.string(),
@@ -15,7 +13,7 @@ export const GalleryPageSchema = validator.object({
   gallery: validator.object({
     title: validator.string(),
     description: validator.string(),
-    images: validator.string().array(),
+    images: validator.array(validator.string()),
   }),
 })
 

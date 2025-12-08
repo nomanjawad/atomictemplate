@@ -1,8 +1,6 @@
 /*
- * index.ts
- * Created by Noman Jawad
- * Copyright (c) 2025 skytechSolutions
- * All rights reserved
+ * common/index.ts
+ * @atomictemplate/validations
  */
 
 export * from "./author.schema"

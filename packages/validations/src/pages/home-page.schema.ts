@@ -1,12 +1,10 @@
 /*
  * home-page.schema.ts
- * Created by Noman Jawad
- * Copyright (c) 2025 skytechSolutions
- * All rights reserved
+ * @atomictemplate/validations
  */
 
-import { validator } from "@libs"
-import { BannerSchema } from "@validations"
+import { validator } from "../validator"
+import { BannerSchema } from "../common/banner.schema"
 
 export const HomePageSchema = validator.object({
   title: validator.string().optional(),

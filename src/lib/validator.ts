@@ -1,15 +1,18 @@
 /*
  * validator.ts
- * Created by Noman Jawad
- * skytech_solutions-frontend-nextJs-typescript
- * Copyright (c) 2025 noman_jawad
- * All rights reserved
+ * Re-exports from @atomictemplate/validations package
  */
 
-import { z } from "zod"
+// Re-export all validators from the package
+export {
+  validator,
+  imageValidator,
+  urlValidator,
+  emailValidator,
+  uuidValidator,
+  slugValidator,
+  phoneValidator,
+} from "@atomictemplate/validations"
 
-export { z as validator }
-
-// Image validator for static image imports
-// All images are exported from public/images/index.ts as string constants
-export const imageValidator = z.string()
+// Re-export zod for direct access
+export { z } from "zod"

@@ -1,11 +1,9 @@
 /*
  * privacy-policy-page.schema.ts
- * Created by Noman Jawad
- * Copyright (c) 2025 skytechSolutions
- * All rights reserved
+ * @atomictemplate/validations
  */
 
-import { validator } from "@libs"
+import { validator } from "../validator"
 
 export const PrivacyPolicySectionSchema = validator.object({
   title: validator.string(),
@@ -30,7 +28,5 @@ export const PrivacyPolicyPageSchema = validator.object({
   }),
 })
 
-export type PrivacyPolicySection = validator.infer<
-  typeof PrivacyPolicySectionSchema
->
+export type PrivacyPolicySection = validator.infer<typeof PrivacyPolicySectionSchema>
 export type PrivacyPolicyPage = validator.infer<typeof PrivacyPolicyPageSchema>

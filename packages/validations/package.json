@@ -1,0 +1,55 @@
+{
+  "name": "@atomictemplate/validations",
+  "version": "1.0.2",
+  "description": "Shared Zod validation schemas for AtomicTemplate frontend and backend",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "validation",
+    "zod",
+    "schema",
+    "typescript",
+    "atomictemplate"
+  ],
+  "author": {
+    "name": "Noman Jawad",
+    "email": "nomanzawad@gmail.com",
+    "url": "https://github.com/nomanjawad"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomanjawad/atomictemplate.git",
+    "directory": "packages/validations"
+  },
+  "homepage": "https://github.com/nomanjawad/atomictemplate/tree/main/packages/validations#readme",
+  "bugs": {
+    "url": "https://github.com/nomanjawad/atomictemplate/issues"
+  },
+  "peerDependencies": {
+    "zod": ">=3.20.0 || >=4.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.9.3",
+    "zod": "^4.1.11"
+  }
+}

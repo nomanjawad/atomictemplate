@@ -1,31 +1,23 @@
 /*
- * blog-post.ts
- * Created by Noman Jawad
- * skytech_solutions-frontend-nextJs-typescript
- * Copyright (c) 2025 noman_jawad
- * All rights reserved
+ * blog-post.schema.ts
+ * @atomictemplate/validations
  */
 
-import { validator } from "@libs"
-
-import { AuthorSchema, MetadataSchema } from "@validations"
+import { validator, slugValidator } from "../validator"
+import { AuthorSchema } from "../common/author.schema"
+import { MetadataSchema } from "../common/metadata.schema"
 
 export const BlogPostSchema = validator.object({
-  id: validator.uuid().optional(),
+  id: validator.string().uuid().optional(),
   title: validator.string().min(5, "Title must be at least 5 characters"),
-  slug: validator
-    .string()
-    .regex(
-      /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
-      "Slug must be URL-friendly (kebab-case)"
-    ),
+  slug: slugValidator,
   content: validator.string(),
   tags: validator.array(validator.string()),
   status: validator.enum(["draft", "published", "archived"]).default("draft"),
   metadata: MetadataSchema,
   author: AuthorSchema,
-  createdAt: validator.date().optional(),
-  updatedAt: validator.date().optional(),
+  createdAt: validator.coerce.date().optional(),
+  updatedAt: validator.coerce.date().optional(),
 })
 
 export const BlogPostPreviewSchema = BlogPostSchema.pick({

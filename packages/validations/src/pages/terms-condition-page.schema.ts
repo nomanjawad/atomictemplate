@@ -1,11 +1,9 @@
 /*
  * terms-condition-page.schema.ts
- * Created by Noman Jawad
- * Copyright (c) 2025 skytechSolutions
- * All rights reserved
+ * @atomictemplate/validations
  */
 
-import { validator } from "@libs"
+import { validator } from "../validator"
 
 export const TermsConditionListItemSchema = validator.object({
   listTitle: validator.string().optional(),
@@ -35,12 +33,6 @@ export const TermsConditionPageSchema = validator.object({
   }),
 })
 
-export type TermsConditionListItem = validator.infer<
-  typeof TermsConditionListItemSchema
->
-export type TermsConditionSection = validator.infer<
-  typeof TermsConditionSectionSchema
->
-export type TermsConditionPage = validator.infer<
-  typeof TermsConditionPageSchema
->
+export type TermsConditionListItem = validator.infer<typeof TermsConditionListItemSchema>
+export type TermsConditionSection = validator.infer<typeof TermsConditionSectionSchema>
+export type TermsConditionPage = validator.infer<typeof TermsConditionPageSchema>

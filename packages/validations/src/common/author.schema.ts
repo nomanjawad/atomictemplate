@@ -1,17 +1,14 @@
 /*
  * author.schema.ts
- * Created by Noman Jawad
- * skytech_solutions-frontend-nextJs-typescript
- * Copyright (c) 2025 noman_jawad
- * All rights reserved
+ * @atomictemplate/validations
  */
 
-import { imageValidator, validator } from "@libs"
+import { validator, imageValidator } from "../validator"
 
 export const AuthorSchema = validator.object({
-  id: validator.uuid().optional(),
+  id: validator.string().uuid().optional(),
   name: validator.string().min(2, "Author name too short"),
-  email: validator.email(),
+  email: validator.string().email("Must be a valid email"),
   bio: validator.string().max(500).optional(),
   avatarUrl: imageValidator.optional(),
 })

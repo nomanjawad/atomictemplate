@@ -1,11 +1,9 @@
 /*
  * contact-page.schema.ts
- * Created by Noman Jawad
- * Copyright (c) 2025 skytechSolutions
- * All rights reserved
+ * @atomictemplate/validations
  */
 
-import { validator } from "@libs"
+import { validator } from "../validator"
 
 export const ContactInfoSchema = validator.object({
   icon: validator.string(),
