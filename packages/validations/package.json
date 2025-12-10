@@ -1,6 +1,6 @@
 {
   "name": "@atomictemplate/validations",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Shared Zod validation schemas for AtomicTemplate frontend and backend",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -11,6 +11,21 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./common": {
+      "types": "./dist/common.d.ts",
+      "import": "./dist/common.js",
+      "require": "./dist/common.cjs"
+    },
+    "./pages": {
+      "types": "./dist/pages.d.ts",
+      "import": "./dist/pages.js",
+      "require": "./dist/pages.cjs"
+    },
+    "./blogs": {
+      "types": "./dist/blogs.d.ts",
+      "import": "./dist/blogs.js",
+      "require": "./dist/blogs.cjs"
     }
   },
   "files": [

@@ -36,3 +36,6 @@ export * from "./common"
 
 // Page schemas
 export * from "./pages"
+
+// Blog schemas
+export * from "./blogs"

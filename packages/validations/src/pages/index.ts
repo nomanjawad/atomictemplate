@@ -4,7 +4,6 @@
  */
 
 export * from "./home-page.schema"
-export * from "./blog-post.schema"
 export * from "./contact-page.schema"
 export * from "./gallery-page.schema"
 export * from "./privacy-policy-page.schema"

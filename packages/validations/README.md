@@ -12,15 +12,35 @@ pnpm add @atomictemplate/validations
 
 ## Usage
 
+### Import Everything
+
 ```typescript
 import {
   HomePageSchema,
   BlogPostSchema,
+  ButtonSchema,
   validator,
-  type HomePage,
-  type BlogPost,
 } from "@atomictemplate/validations"
+```
 
+### Import Specific Modules (Recommended)
+
+For better tree-shaking and clearer imports, use subpath imports:
+
+```typescript
+// Common schemas (buttons, forms, sliders, etc.)
+import { ButtonSchema, BannerSchema } from "@atomictemplate/validations/common"
+
+// Page schemas (home, contact, gallery, etc.)
+import { HomePageSchema, ContactPageSchema } from "@atomictemplate/validations/pages"
+
+// Blog schemas
+import { BlogPostSchema, BlogPostPreviewSchema } from "@atomictemplate/validations/blogs"
+```
+
+### Validation Examples
+
+```typescript
 // Validate data
 const validData = HomePageSchema.parse(data)
 
@@ -31,20 +51,11 @@ if (result.success) {
 } else {
   console.log(result.error.issues)
 }
-
-// Use types
-const homePage: HomePage = {
-  title: "Home",
-  banner: {
-    title: "Welcome",
-    description: "Hello world",
-  },
-}
 ```
 
 ## Available Schemas
 
-### Common Schemas
+### Common Schemas (`@atomictemplate/validations/common`)
 
 | Schema           | Description                                   |
 | ---------------- | --------------------------------------------- |
@@ -59,17 +70,23 @@ const homePage: HomePage = {
 | `ListSchema`     | List items with icons                         |
 | `SliderSchema`   | Slider/carousel configuration                 |
 
-### Page Schemas
+### Page Schemas (`@atomictemplate/validations/pages`)
 
-| Schema                     | Description                              |
-| -------------------------- | ---------------------------------------- |
-| `HomePageSchema`           | Home page structure                      |
-| `BlogPostSchema`           | Blog post with author, metadata, content |
-| `ContactPageSchema`        | Contact page with form fields            |
-| `GalleryPageSchema`        | Gallery page structure                   |
-| `PrivacyPolicyPageSchema`  | Privacy policy page                      |
-| `TermsConditionPageSchema` | Terms & conditions page                  |
-| `examplePageSchema`        | Full example page with all sections      |
+| Schema                     | Description                         |
+| -------------------------- | ----------------------------------- |
+| `HomePageSchema`           | Home page structure                 |
+| `ContactPageSchema`        | Contact page with form fields       |
+| `GalleryPageSchema`        | Gallery page structure              |
+| `PrivacyPolicyPageSchema`  | Privacy policy page                 |
+| `TermsConditionPageSchema` | Terms & conditions page             |
+| `examplePageSchema`        | Full example page with all sections |
+
+### Blog Schemas (`@atomictemplate/validations/blogs`)
+
+| Schema                  | Description                              |
+| ----------------------- | ---------------------------------------- |
+| `BlogPostSchema`        | Blog post with author, metadata, content |
+| `BlogPostPreviewSchema` | Partial blog post for previews           |
 
 ## Validators
 
@@ -97,10 +114,10 @@ import type {
   Banner,
   FAQ,
   SliderData,
-  // ... etc
 } from "@atomictemplate/validations"
 ```
 
 ## License
 
 MIT © Noman Jawad
+

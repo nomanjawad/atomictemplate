@@ -1,7 +1,12 @@
 import { defineConfig } from "tsup"
 
 export default defineConfig({
-  entry: ["src/index.ts"],
+  entry: {
+    index: "src/index.ts",
+    common: "src/common/index.ts",
+    pages: "src/pages/index.ts",
+    blogs: "src/blogs/index.ts",
+  },
   format: ["esm", "cjs"],
   dts: true,
   clean: true,
@@ -11,3 +16,4 @@ export default defineConfig({
   treeshake: true,
   external: ["zod"],
 })
+
